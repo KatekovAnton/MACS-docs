@@ -15,7 +15,7 @@ This repo contains documentation and specifications for M.A.X. Touch build-in sc
     5. [Unit](#Unit)
 3. [Event System](#Event-System)
 4. [Quest System](#Quest-System)
-4. [Revisions](#Revisions)
+5. [Revisions](#Revisions)
 
 # Overview
 M.A.X. Touch have built-in lua interpreter that allows you to build your own scenarios.
