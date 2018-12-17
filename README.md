@@ -18,40 +18,64 @@ This repo contains documentation and specifications for M.A.X. Touch build-in sc
 5. [Revisions](#Revisions)
 
 # Overview
-M.A.X. Touch have built-in lua interpreter that allows you to build your own scenarios.
+This specification explains about M.A.X. Touch embedded scripting API. Using this API you can write your own scenarios.
 
-## Initialize script
-Initialize script allow you to write script that will initialize match.
+Facebook community:
+https://www.facebook.com/groups/1420889268172393/
+
+## Initialization script
+Initialize script is a script that will initialize match. It is executing during game load and its primary goal is to initialize game. 
+
+Initialize script will specify:
+- game information: name, description
+- uniset
+- map
+- resource map
+- players
+- initial units
+- initial upgrades
 
 ## Runtime script
-Runtime script allow you to write logic that will be executed during the match.
+Runtime script allow you to write logic that will be executed during the match. Game call script event handler and script can execute some logic at this moment.
+
+## Executing
+Initialization script and Runtime script will be running in main thread.
+
+Initialization script and Runtime script have different contexts so values defined on Initialization script will not be available in Runtime script.
+
+Please note that some APIs are available for Initialization script and not available for Runtime script, and vise versa.
 
 ## Testing scenarios
-Test your scenario locally before uploading it on a website
+<TBD> Test your scenario locally before uploading it on a website.
 
 ## Uploading scenarios
-Upload your scenarios on a website
+<TBD> Upload your scenarios on a website
 
 # API Specification
-This section contains information about
+This section contains information about objects and its APIs that hosting application eposes to lua side. 
+
+Structures are passed to script by value with transferring ownership into lua.
+
+Other objects will be passed by pointer and will stay owned/managed by M.A.X. Do not retain them for a long time - basically script will not know when object will be deleted.
 
 ## Structures
-Lua 
-Color
-Rect
-Size
-Point
-GameMatchPlayerInfo
-
+- Color
+- Rect
+- Size
+- Point
+- GameMatchPlayerInfo
 
 ## Game
 Represents game state
 
-## Match
-Represents match
+## GameMatch
+Represents match. 
 
-## Player
+## GameMatchPlayer
 Represents player
+
+## GameUnit
+Represents unit
 
 # Event System
 Built-in event system allow you to track and handle some game events.
