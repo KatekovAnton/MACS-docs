@@ -11,9 +11,10 @@ This repo contains documentation and specifications for M.A.X. Touch build-in sc
 2. [API Specification](#API-Specification)
     1. [Structures](#Structures)
     2. [Game](#Game)
-    3. [GameMatch](#GameMatch)
-    4. [GameMatchPlayer](#GameMatchPlayer)
-    5. [GameUnit](#GameUnit)
+    3. [GameMap](#GameMap)
+    4. [GameMatch](#GameMatch)
+    5. [GameMatchPlayer](#GameMatchPlayer)
+    6. [GameUnit](#GameUnit)
 3. [Event System](#Event-System)
 4. [Quest System](#Quest-System)
 5. [Revisions](#Revisions)
@@ -68,6 +69,9 @@ Other objects will be passed by pointer and will stay owned/managed by M.A.X. Do
 
 ## Game
 Represents game state
+
+## GameMap
+Represents a map. 
 
 ## GameMatch
 Represents match. 

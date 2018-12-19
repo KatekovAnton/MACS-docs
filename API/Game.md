@@ -2,7 +2,7 @@
 Represents game state. Responsible for working with UI and user input.
 
 # Blocks
-```    
+```
 void enableGameFieldBlock(Rect holeRect)
 ```
 Enables invisible block that covers game field and prevent user from interacting with game field everywhere except the given hole. Hole can be size of 0x0 or located on (9999;9999) to completely prevent user input. Game do not perform any validations.
@@ -206,4 +206,3 @@ Availability:
 Size getScreenSize()
 ```
 Returns size of screen in points.
-
