@@ -54,11 +54,11 @@ Please note that some APIs are available for Initialization script and not avail
 <TBD> Upload your scenarios on a website
 
 # API Specification
-This section contains information about objects and its APIs that hosting application eposes to lua side. 
+This section contains information about objects and its APIs that hosting application exposes to lua side. 
 
-Structures are passed to script by value with transferring ownership into lua.
+**Structures** are passed to script by value with transferring ownership into lua.
 
-Other objects will be passed by pointer and will stay owned/managed by M.A.X. Do not retain them for a long time - basically script will not know when object will be deleted.
+**Objects** will be passed by pointer and will stay owned/managed by M.A.X. Do not retain them for a long time - basically script will not know when object will be deleted.
 
 ## Structures
 - Color
@@ -67,8 +67,12 @@ Other objects will be passed by pointer and will stay owned/managed by M.A.X. Do
 - Point
 - GameMatchPlayerInfo
 
+[Structures API description](API/Structures.md)
+
 ## Game
-Represents game state
+Represents top-level game state. Game object is responsible for working with UI and user input: windows, visual pointers, UI blocks and so on.
+
+[Game API description](API/Game.md)
 
 ## GameMap
 Represents a map. 
@@ -76,11 +80,17 @@ Represents a map.
 ## GameMatch
 Represents match. 
 
+[GameMatch API description](API/GameMatch.md)
+
 ## GameMatchPlayer
 Represents player
 
+[GameMatchPlayer API description](API/GameMatchPlayer.md)
+
 ## GameUnit
 Represents unit
+
+[GameUnit API description](API/GameUnit.md)
 
 # Event System
 Built-in event system allow you to track and handle some game events.

@@ -1,7 +1,12 @@
 # GameMatch
 Represents match. 
 
-# Players
+## **Constructors**
+---
+Not available because this object is managed by hosting application
+
+## **Players**
+---
 ```
 Int getNumberOfPlayers()
 ```

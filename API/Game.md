@@ -1,8 +1,13 @@
 # Game
-Represents game state. Responsible for working with UI and user input.
+Represents top-level game state. Game object is responsible for working with UI and user input: windows, visual pointers, UI blocks and so on.
 
-# Blocks
-```
+## **Constructor**
+---
+Not available because this object is managed by hosting application
+
+## **Screen Blocks**
+---
+```    
 void enableGameFieldBlock(Rect holeRect)
 ```
 Enables invisible block that covers game field and prevent user from interacting with game field everywhere except the given hole. Hole can be size of 0x0 or located on (9999;9999) to completely prevent user input. Game do not perform any validations.
@@ -47,7 +52,8 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Indicators
+## **Indicators**
+---
 ``` 
 void showTutorialArrow(Point postion, float radius, bool isInterface)
 ```
@@ -85,7 +91,8 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Camera
+## **Camera**
+---
 ``` 
 void moveGameFieldToCell(Point cell, float duration)
 ```
@@ -109,7 +116,8 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Unit selection
+## **Unit selection**
+---
 ```
 bool isUnitSelectedWithId(Int unitId)
 ```
@@ -148,7 +156,8 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Messages
+## **Messages**
+---
 ``` 
 void showMessage(String icon, String title, String text)
 ```
@@ -171,7 +180,8 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Iteractions
+## **Iteractions**
+---
 ```
 void waitForTap(bool tapToBlockHole)
 ```
@@ -191,7 +201,8 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Quests
+## **Quests**
+---
 ```
 void scheduleQuestUpdates()
 ```
@@ -201,7 +212,7 @@ Availability:
 - [ ] Init
 - [x] Runtime
 
-# Other
+## **Other**
 ```
 Size getScreenSize()
 ```
