@@ -38,7 +38,7 @@ Add upgrade for given unit type to given parameter type on a given value. We ass
 
 Parameters:
 - **String type** - unit type to upgrade
-- **Int parameterType** - parameter to upgrade
+- **Int parameterType** - parameter to upgrade. Refer to [API's contstants description](Constants.md)
 - **Int value** - value to upgrade
 
 Availability: 
@@ -47,7 +47,7 @@ Availability:
 
 ---
 ```
-getPlayerName
+String getPlayerName()
 ```
 
 ---

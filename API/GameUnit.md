@@ -30,16 +30,19 @@ bool getIsMoving()
 ```
 void setParameterValue(Int parameterType, Int newValue)
 ```
+Refer to [API's contstants description](Constants.md)
 
 ---
 ```
 int getParameterValue(Int parameterType)
 ```
+Refer to [API's contstants description](Constants.md)
 
 ---
 ```
 int getParameterMaxValue(Int parameterType)
 ```
+Refer to [API's contstants description](Constants.md)
 
 ---
 ```

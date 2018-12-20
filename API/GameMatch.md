@@ -33,5 +33,5 @@ void setUnitName(Int unitId, String name)
 
 ---
 ```
-getUnitWithName
+GameUnit getUnitWithName(String unitName)
 ```

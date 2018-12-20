@@ -69,6 +69,10 @@ This section contains information about objects and its APIs that hosting applic
 
 [Structures API description](API/Structures.md)
 
+## Constants
+
+[API's contstants description](API/Constants.md)
+
 ## Game
 Represents top-level game state. Game object is responsible for working with UI and user input: windows, visual pointers, UI blocks and so on.
 

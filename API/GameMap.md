@@ -2,15 +2,15 @@
 Represents map. 
 
 ```
-getWidth
+void getWidth
 ```
 
 ---
 ```
-getHeight
+void getHeight
 ```
 
 ---
 ```
-placeInitialResources
+void placeInitialResources
 ```
