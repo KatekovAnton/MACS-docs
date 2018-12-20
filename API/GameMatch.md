@@ -28,7 +28,7 @@ GameUnit getUnitWithId(Int unitId)
 
 ---
 ```
-void setUnitName(int unitId, String name)
+void setUnitName(Int unitId, String name)
 ```
 
 ---

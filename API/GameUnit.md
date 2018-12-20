@@ -8,60 +8,60 @@ Not available because this object is managed by hosting application
 ## **Methods**
 ---
 ```
-placeUnitOnMap
+Int getId()
 ```
 
 ---
 ```
-getPosition
+void placeUnitOnMap()
 ```
 
 ---
 ```
-getIsMoving
+Point getPosition()
 ```
 
 ---
 ```
-getId
+bool getIsMoving()
 ```
 
 ---
 ```
-setParameterValue
+void setParameterValue(Int parameterType, Int newValue)
 ```
 
 ---
 ```
-getParameterValue
+int getParameterValue(Int parameterType)
 ```
 
 ---
 ```
-getParameterMaxValue
+int getParameterMaxValue(Int parameterType)
 ```
 
 ---
 ```
-getPathTarget
+Point getPathTarget()
 ```
 
 ---
 ```
-turnOn
+void turnOn()
 ```
 
 ---
 ```
-turnOff
+void turnOff()
 ```
 
 ---
 ```
-setDirection
+void setDirection(Int direction)
 ```
 
 ---
 ```
-storeUnitToCargo
+void storeUnitToCargo(GameUnit unit)
 ```
