@@ -75,10 +75,12 @@ Represents top-level game state. Game object is responsible for working with UI 
 [Game API description](API/Game.md)
 
 ## GameMap
-Represents a map. 
+Represents a map. Map contains infomation about
+
+[GameMap API description](API/GameMap.md)
 
 ## GameMatch
-Represents match. 
+Represents match. Match contains all players and some extra information about its state.
 
 [GameMatch API description](API/GameMatch.md)
 

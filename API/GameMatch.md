@@ -18,17 +18,17 @@ void playerAtIndex(Int index)
 
 ---
 ```
-getMap
+GameMap getMap()
 ```
 
 ---
 ```
-getUnitWithId
+GameUnit getUnitWithId(Int unitId)
 ```
 
 ---
 ```
-setUnitName
+void setUnitName(int unitId, String name)
 ```
 
 ---
