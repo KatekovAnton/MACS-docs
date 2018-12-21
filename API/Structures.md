@@ -9,25 +9,45 @@ Availability:
 2-dimentional point with coordinates (x, y).
 
 ## **Constructor**
-```
-```
-
-## **Methods**
 ---
 ```
+Point()
+```
+
+```
+Point(Float x, Float y)
+```
+
+## **Properties**
+---
+```
+x
+```
+
+```
+y
 ```
 
 # Size
 2-dimentional size with dimentions (width, height).
 
-## **Constructor**
+## **Constructors**
 ---
 ```
+Size()
 ```
 
-## **Methods**
+```
+Size(Float w, Float h)
+```
+
+## **Properties**
 ---
 ```
+w
+```
+```
+h
 ```
 
 # Rect
@@ -36,11 +56,26 @@ Availability:
 ## **Constructor**
 ---
 ```
+Rect()
 ```
 
-## **Methods**
+```
+Rect(Float x, Float y, Float w, Float h)
+```
+
+## **Properties**
 ---
 ```
+x
+```
+```
+y
+```
+```
+w
+```
+```
+h
 ```
 
 # Color
@@ -49,11 +84,7 @@ Color in RGBA color space. Each component range is 0-255
 ## **Constructor**
 ---
 ```
-```
-
-## **Methods**
----
-```
+Color(Int r, Int g, Int b, Int a)
 ```
 
 # GameMatchPlayerInfo
@@ -62,9 +93,6 @@ Initial information about player.
 ## **Constructor**
 ---
 ```
+GameMatchPlayerInfo(Int playerId, Int clan, String name, Color color, Bool isAI, String AIName, Int team)
 ```
-
-## **Methods**
----
-```
-```
+playerId for 1st player should be equal 1 and incremented by 1 for each player.

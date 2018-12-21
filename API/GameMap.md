@@ -2,15 +2,15 @@
 Represents map. 
 
 ```
-void getWidth
+Int getWidth()
 ```
 
 ---
 ```
-void getHeight
+Int getHeight()
 ```
 
 ---
 ```
-void placeInitialResources
+void placeInitialResources(Int x, Int y)
 ```
