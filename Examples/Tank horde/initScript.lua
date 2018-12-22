@@ -163,11 +163,13 @@ end
 
 function testMatchLogic:onMatchLoaded(game, match)
 
-  --match:playerAtIndex(1):addUnitTypeUpgrade("turret", UNIT_PARAMETER_TYPE_ATTACK, 2)
-  --match:playerAtIndex(1):addUnitTypeUpgrade("turret", UNIT_PARAMETER_TYPE_HEALTH, 2)
-  --match:playerAtIndex(1):addUnitTypeUpgrade("arturret", UNIT_PARAMETER_TYPE_ATTACK, 2)
-  --match:playerAtIndex(1):addUnitTypeUpgrade("arturret", UNIT_PARAMETER_TYPE_HEALTH, 2)
   match:playerAtIndex(2):addEnemyLocation(Rect(36, 37, 42, 42), 5)
+
+end
+
+
+
+function testMatchLogic:onMatchPrepared(game, match)
 
 end
 

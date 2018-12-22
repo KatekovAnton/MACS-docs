@@ -12,6 +12,8 @@ GameUnit createUnit(Int posx, Int posy, String type)
 ```
 Creates unit of given type located on a given coordinates. You should place it on the map manually.
 
+! You should not retain this unit in script for a long time because unit can be killed and script will never know it
+
 Parameters:
 - **Int posx** - position x
 - **Int posy** - position y
@@ -25,7 +27,9 @@ Availability:
 ```
 GameUnit getUnitWithId(Int unitId)
 ```
-Return unit with a given Id
+Return unit with a given Id. 
+
+! You should not retain this unit in script for a long time because unit can be killed and script will never know it
 
 Paramegters:
 - **Int unitId** - unitId of desired unit
@@ -49,12 +53,17 @@ Availability:
 ```
 String getPlayerName()
 ```
+Return player's name.
+
+Availability: 
+- [x] Init
+- [x] Runtime
 
 ---
 ```
 void setAvailableGold(Int amount)
 ```
-Set available gold for player
+Set available gold for player.
 
 Parameters:
 - **Int amount** - gold
@@ -65,12 +74,13 @@ Availability:
 
 ---
 ```
-void addEnemyLocation()
+void addEnemyLocation(Rect zone, Float danger)
 ```
-Dedcription
+Will make effect for AI players. This call will let them know where is the enemy. AI will handle this information based on his common rules.
 
 Parameters:
-- **Rect** - type
+- **Rect zone** - zone to search for enemy
+- **Float danger** - estimated danger around. Put 1 to 5 here in order to avoid any side effects caused by additinonal danger zone.
 
 Availability: 
 - [x] Init
@@ -80,3 +90,13 @@ Availability:
 ```
 void setCameraPosition(Int x, Int y, Float zoom)
 ```
+Sets initial camera position to a given cell coordinates with a given zoom value
+
+Parameters:
+- **Int x** - x position
+- **Int y** - y position
+- **Float zoom** - zoom vaule. Minimum value is 0.5.
+
+Availability: 
+- [x] Init
+- [ ] Runtime

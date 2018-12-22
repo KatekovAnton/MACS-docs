@@ -421,6 +421,12 @@ end
 
 
 
+function testMatchLogic:onMatchPrepared(game, match)
+
+end
+
+
+
 -- Setup API to this instance
 TheMatchLogic = testMatchLogic
 

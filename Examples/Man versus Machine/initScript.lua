@@ -386,6 +386,13 @@ function testMatchLogic:onMatchLoaded(game, match)
   putUnitMiningWithDefaultSettings(match, 2, 86, 30)
   
   match:playerAtIndex(2):addEnemyLocation(Rect(30, 50, 30, 20), 5)
+  
+end
+
+
+
+function testMatchLogic:onMatchPrepared(game, match)
+
 end
 
 
