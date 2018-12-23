@@ -26,19 +26,16 @@ Facebook community:
 https://www.facebook.com/groups/1420889268172393/
 
 ## Initialization script
-Initialize script is a script that will initialize match. It is executing during game load and its primary goal is to initialize game. 
+Initialize script is a script that will initialize match. It should be named initScript.lua and should be located in root directory of scenario zip arhive. 
 
-Initialize script will specify:
-- game information: name, description
-- uniset
-- map
-- resource map
-- players
-- initial units
-- initial upgrades
+This script will be executed during game load in order to initialize the game. 
+
+For details about initializion script please refer to [Guide for Initialization script](API/GudeForInitializationScript.md).
 
 ## Runtime script
 Runtime script allow you to write logic that will be executed during the match. Game call script event handler and script can execute some logic at this moment.
+
+For details about runtime script please refer to [Guide for Runitme script](API/GudeForRuntimeScript.md).
 
 ## Executing
 Initialization script and Runtime script will be running in main thread.
