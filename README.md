@@ -33,6 +33,8 @@ This script will be executed during game load in order to initialize the game.
 For details about initializion script please refer to [Guide for Initialization script](API/GudeForInitializationScript.md).
 
 ## Runtime script
+> This is still work in progres and not supported for scenarios. You can play with tutorial0.lua
+
 Runtime script allow you to write logic that will be executed during the match. Game call script event handler and script can execute some logic at this moment.
 
 For details about runtime script please refer to [Guide for Runitme script](API/GudeForRuntimeScript.md).
@@ -44,11 +46,22 @@ Initialization script and Runtime script have different contexts so values defin
 
 Please note that some APIs are available for Initialization script and not available for Runtime script, and vise versa.
 
-## Testing scenarios
-<TBD> Test your scenario locally before uploading it on a website.
+## Uploading and using scenarios
+After you done with your scenario and want to show it to community you should do following steps:
 
-## Uploading scenarios
-<TBD> Upload your scenarios on a website
+1. rename initialization script file (**testMatch.lua** file) inti **initScript.lua**
+2. zip this file into arhive. Archive should contains this file in a root folder.
+3. go to website https://maxsrv.automania.net/#
+4. naviage to **MY -> My Scenarios:** https://maxsrv.automania.net/my/scenarios.html
+5. Choose **Create New** https://maxsrv.automania.net/my/edit-scenario.html
+6. Press **Choose File** button and select your zip archive
+7. Website will parse your script file and show its data. Select **Ready** and **Save**
+
+Now new scenario should appear for you in game.
+
+On scenarios page (navigate to **Game -> Scenarios** https://maxsrv.automania.net/game/scenarios.html ) you can see all available scenarios. 
+
+Choose any scenario created by other member (for example: https://maxsrv.automania.net/game/scenario/3.html) and press **Add to my list**  in order to see it in game.
 
 # API Specification
 This section contains information about objects and its APIs that hosting application exposes to lua side. 
