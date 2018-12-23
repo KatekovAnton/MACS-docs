@@ -1,6 +1,6 @@
 # Initialization scripting
 
-This guide will explain the process of creating initScrip.lua - script that defines a phase of match initialization.
+This guide will explain the process of creating **initScript.lua** - script that defines a phase of match initialization.
 
 Example scenarios:
 - [Alien Attack](../Examples/Alien_attack/initScript.lua)
