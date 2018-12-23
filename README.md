@@ -24,6 +24,11 @@ This specification explains about M.A.X. Touch embedded scripting API. Using thi
 Facebook community:
 https://www.facebook.com/groups/1420889268172393/
 
+## Useful hints:
+- **In order to see coordinates**, open options.json, find **displayConsole** varable and set it to **true**. In addition set **fullscreen** to **false**. Now console will print cell coordinates you click on.
+- **In order to find unit types**, open **Units/originalUniset.json**, refer to **_type** value. For example, **Heavy vehicle plant** is **hvplant**.
+- **In order to find available maps** refer to **loadedRemoteMaps.json** in **Saves** folder. You should put desired map's **file** property + **.wrl**, for example **224x2246.wrl** to start on **Revelation** map size of 224x224.
+
 ## Initialization script
 Initialize script is a script that will initialize match. It should be named initScript.lua and should be located in root directory of scenario zip arhive. 
 
