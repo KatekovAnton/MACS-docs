@@ -53,7 +53,7 @@ Please note that some APIs are available for Initialization script and not avail
 ## Uploading and using scenarios
 After you done with your scenario and want to show it to community you should do following steps:
 
-1. rename initialization script file (**testMatch.lua** file) inti **initScript.lua**
+1. rename initialization script file (**testMatch.lua** file) into **initScript.lua**
 2. zip this file into arhive. Archive should contains this file in a root folder.
 3. go to website https://maxsrv.automania.net/#
 4. naviage to **MY -> My Scenarios:** https://maxsrv.automania.net/my/scenarios.html
