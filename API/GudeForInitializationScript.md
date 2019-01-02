@@ -6,6 +6,7 @@ Example scenarios:
 - [Alien Attack](../Examples/Alien_attack/initScript.lua)
 - [Tank horde](../Examples/Tank_horde/initScript.lua)
 - [Man versus Machine](../Examples/Man_versus_Machine/initScript.lua)
+- [Test AI](../Examples/Test_AI/initScript.lua)
 
 ## Overview
 
