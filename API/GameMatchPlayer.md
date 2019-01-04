@@ -88,6 +88,19 @@ Availability:
 
 ---
 ```
+void setAIRefuelAutomatically(bool refuelAutomatically)
+```
+Tells to player if it should refuel its units automatically or not. Set to `true` by default in order to give AI some advantage in games with gasoline enabled. Set if to `false` if you want it to have finit amount of gasoline. Note: AI cannot refuel his units in regular way. 
+
+Parameters:
+- **bool refuelAutomatically** - indication if AI should refuel units automatically
+
+Availability: 
+- [x] Init
+- [ ] Runtime
+
+---
+```
 void setCameraPosition(Int x, Int y, Float zoom)
 ```
 Sets initial camera position to a given cell coordinates with a given zoom value
