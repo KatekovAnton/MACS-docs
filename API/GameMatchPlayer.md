@@ -96,7 +96,7 @@ Parameters:
 - **bool refuelAutomatically** - indication if AI should refuel units automatically
 
 Availability: 
-- [x] Init
+- [x] Init, v10.1
 - [ ] Runtime
 
 ---
