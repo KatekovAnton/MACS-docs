@@ -125,3 +125,17 @@ Put given unit into a cargo.
 Availability: 
 - [x] Init
 - [ ] Runtime
+
+---
+```
+void setBuildUnit(String type, Int speed)
+```
+Set a task to build unit.
+
+Parameters:
+- **String type** - type of unit to build
+- **Int speed** - Speed to build with. Valid values: 0 - 1x speed, 1 - 2x speed, 2 - 4x speed, 3 - 8x speed.
+
+Availability: 
+- [x] Init, v10.1
+- [ ] Runtime
