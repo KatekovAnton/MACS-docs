@@ -76,7 +76,7 @@ Availability:
 ```
 void addEnemyLocation(Rect zone, Float danger)
 ```
-Will make effect for AI players. This call will let them know where is the enemy. AI will handle this information based on his common rules.
+Will make effect only if player is AI. This call will let them know where is the enemy. AI will handle this information based on his common rules.
 
 Parameters:
 - **Rect zone** - zone to search for enemy
