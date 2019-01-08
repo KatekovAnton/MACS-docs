@@ -88,6 +88,19 @@ Availability:
 
 ---
 ```
+void addDefenceLocation(Rect zone)
+```
+Will make effect only if player is AI. This call will allocate all units in given are to defensive behaviour. Units will not leave territory once enemy spotted. If defender unit will be attacked he will change behaviour to default.
+
+Parameters:
+- **Rect zone** - zone that should be protected
+
+Availability: 
+- [x] Init, v10.1
+- [ ] Runtime
+
+---
+```
 void setAIRefuelAutomatically(bool refuelAutomatically)
 ```
 Tells to player if it should refuel its units automatically or not. Set to `true` by default in order to give AI some advantage in games with gasoline enabled. Set if to `false` if you want it to have finit amount of gasoline. Note: AI cannot refuel his units in regular way. 
