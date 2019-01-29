@@ -37,9 +37,9 @@ This script will be executed during game load in order to initialize the game.
 For details about initializion script please refer to [Guide for Initialization script](API/GudeForInitializationScript.md).
 
 ## Runtime script
-> This is still work in progres and not supported for scenarios. You can play with tutorial0.lua
+> This is still work in progres and not supported for scenarios. You can play with tutorial0Runtime.lua
 
-Runtime script allow you to write logic that will be executed during the match. Game call script event handler and script can execute some logic at this moment.
+Runtime script is a script that contains logic that will be executed during the match, on top of running game. Game is constantly calling script event handler on each game event and allows script to handle those events by executing some logic at this moment.
 
 For details about runtime script please refer to [Guide for Runitme script](API/GudeForRuntimeScript.md).
 
