@@ -134,7 +134,7 @@ Set a task to build unit.
 
 Parameters:
 - **String type** - type of unit to build
-- **Int speed** - Speed to build with. Valid values: 0 - 1x speed, 2 - 2x speed, 4 - 4x speed.
+- **Int speed** - Speed to build with. Valid values: 1 - 1x speed, 2 - 2x speed, 4 - 4x speed.
 
 Availability: 
 - [x] Init, v10.1
