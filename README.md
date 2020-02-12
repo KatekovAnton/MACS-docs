@@ -1,5 +1,5 @@
-# MAXTouch-docs
-This repo contains documentation and specifications for M.A.X. Touch build-in scripting system
+# M.A.X. Touch scripting API
+This repo contains documentation and specifications for M.A.X. Touch build-in scripting system and campaign structure
 
 # Table of Contents
 1. [Overview](#Overview)
@@ -14,9 +14,8 @@ This repo contains documentation and specifications for M.A.X. Touch build-in sc
     4. [GameMatch](#GameMatch)
     5. [GameMatchPlayer](#GameMatchPlayer)
     6. [GameUnit](#GameUnit)
-3. [Event System](#Event-System)
-4. [Quest System](#Quest-System)
-5. [Revisions](#Revisions)
+3. [Campaign](#Campaign)
+4. [Revisions](#Revisions)
 
 # Overview
 This specification explains about M.A.X. Touch embedded scripting API. Using this API you can write your own scenarios.
@@ -113,12 +112,11 @@ Represents unit
 
 [GameUnit API description](API/GameUnit.md)
 
-# Event System
-Built-in event system allow you to track and handle some game events.
+# Campaign
+This section will explain about campaign data structures: Missions, Quests, Cutscenes, Objectives and Actions
 
-# Quest System
-Quest system is based on handling events.
+Campaign consists of json configuration and lua scripts.
 
 # Revisions
-Current version: 10.2.1
+Current version: 12.0.1
     
