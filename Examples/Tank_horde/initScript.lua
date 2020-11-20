@@ -64,6 +64,7 @@ local gameSettings =
     game_name = 'Tank Horde',
     game_description = 'Enemy tank horde is coming to your base! Defend your complex if you can!',
     uniset_name = "Original",
+    uniset_id = 1,
     start_gold = 1,
     ['amoun of material'] = {
         ['raw']  = 2,               -- values:0,1,2
@@ -164,12 +165,6 @@ end
 function testMatchLogic:onMatchLoaded(game, match)
 
   match:playerAtIndex(2):addEnemyLocation(Rect(36, 37, 42, 42), 5)
-
-end
-
-
-
-function testMatchLogic:onMatchPrepared(game, match)
 
 end
 
