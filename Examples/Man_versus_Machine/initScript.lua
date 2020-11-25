@@ -20,6 +20,19 @@ function putUnitMiningWithDefaultSettings(match, player_index, x, y)
   return unit_mining
 end
 
+function putPlantAndStartProduction(match, player_index, x, y, plant, production, speed)
+  local plantUnit = match:playerAtIndex(player_index):createUnit(x, y, plant)
+  plantUnit:placeUnitOnMap(false)
+  if production ~= nil then
+    if speed ~= nil then
+      plantUnit:setBuildUnit(production, speed)
+    else
+      plantUnit:setBuildUnit(production, 1)
+    end
+    
+  end
+end
+
 
 local testMatchSettings = CustomMatchSettings()
 testMatchSettings.mapFileName = 'Desert_4.wrl'
@@ -32,6 +45,7 @@ local gameSettings =
     game_name = testMatchSettings.mapName,
     game_description = 'The enemy is on the attack with tanks and rocket launchers. You have a handful of infiltrators, infantry units, and a few scouts. Can it be done? Can human units prevail against these war machines?',
     uniset_name = "Original",
+    uniset_id = 1,
     start_gold = 1,
     ['amoun of material'] = {
         ['raw']  = 2,               -- values:0,1,2
@@ -247,9 +261,9 @@ local unitList2 = {
   {82, 27, "conn"},
   {83, 27, "conn"},
   {84, 27, "conn"},
-  {64, 30, "hvplant"},
-  {62, 30, "lightplant"},
-  {60, 30, "airplant"},
+  --{64, 30, "hvplant"},
+  --{62, 30, "lightplant"},
+  --{60, 30, "airplant"},
   {62, 32, "conn"},
   {62, 33, "conn"},
   {63, 34, "hang"},
@@ -349,7 +363,17 @@ local unitList2 = {
   {102, 103, "scout"},
 
 }
--- rocket  tank
+
+local playerPlants2 = {
+	
+  {64, 30, "hvplant", "tank", 2},
+  {62, 30, "lightplant", "scout", 2},
+  {60, 30, "airplant", "bomber", 1},
+  
+}
+
+
+
 
 
 testMatchLogic:addInitialUnitsForPlayer(unitList1, 1)
@@ -380,19 +404,16 @@ end
 
 function testMatchLogic:onMatchLoaded(game, match)
   
+  for i,plantItem in ipairs(playerPlants2) do
+    putPlantAndStartProduction(match, 2, plantItem[1], plantItem[2], plantItem[3], plantItem[4], plantItem[5])
+  end
+  
   putUnitMiningWithDefaultSettings(match, 1, 37, 66) 
   
   putUnitMiningWithDefaultSettings(match, 2, 85, 25)
   putUnitMiningWithDefaultSettings(match, 2, 86, 30)
   
   match:playerAtIndex(2):addEnemyLocation(Rect(30, 50, 30, 20), 5)
-  
-end
-
-
-
-function testMatchLogic:onMatchPrepared(game, match)
-
 end
 
 
