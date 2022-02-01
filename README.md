@@ -1,5 +1,5 @@
 # MAXTouch-docs
-This repo contains documentation and specifications for M.A.X. Touch build-in scripting system
+This repo contains documentation and specifications for MACS (Mechanized Assault Commanders) build-in scripting system
 
 # Table of Contents
 1. [Overview](#Overview)
@@ -19,7 +19,7 @@ This repo contains documentation and specifications for M.A.X. Touch build-in sc
 5. [Revisions](#Revisions)
 
 # Overview
-This specification explains about M.A.X. Touch embedded scripting API. Using this API you can write your own scenarios.
+This specification explains about MACS Touch embedded scripting API. Using this API you can write your own scenarios.
 
 Facebook community:
 https://www.facebook.com/groups/1420889268172393/
@@ -73,7 +73,7 @@ This section contains information about objects and its APIs that hosting applic
 
 **Structures** are passed to script by value with transferring ownership into lua.
 
-**Objects** will be passed by pointer and will stay owned/managed by M.A.X. Do not retain them for a long time - basically script will not know when object will be deleted.
+**Objects** will be passed by pointer and will stay owned/managed by MACS engine. Do not retain them for a long time - basically script will not know when object will be deleted.
 
 ## Structures
 - Color
