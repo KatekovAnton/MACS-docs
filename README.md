@@ -1,4 +1,4 @@
-# MAXTouch-docs
+# MACS-docs
 This repo contains documentation and specifications for MACS (Mechanized Assault Commanders) build-in scripting system
 
 # Table of Contents
