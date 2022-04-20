@@ -39,6 +39,8 @@ To start creating your scenario you should open test match script which is locat
 
 You can open it with any text editor, I would recommend you Visual Studio Code, Atom, Sublime Text or Notepad++ because they have option to highlight script syntax, it is very useful.
 
+In order to run the script, start the game, go LOCAL GAME and press small `{>}` button on the top-left corner of the screen. Game will start a local game with the content of `testMatch.lua`.
+
 ## Structure
 
 Lets look at the script structure
