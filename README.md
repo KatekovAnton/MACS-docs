@@ -54,18 +54,18 @@ After you done with your scenario and want to show it to community you should do
 
 1. rename initialization script file (**testMatch.lua** file) into **initScript.lua**
 2. zip this file into arhive. Archive should contains this file in a root folder.
-3. go to website https://maxsrv.automania.net/#
-4. naviage to **MY -> My Scenarios:** https://maxsrv.automania.net/my/scenarios.html
-5. Choose **Create New** https://maxsrv.automania.net/my/edit-scenario.html
+3. go to website https://macsgame.com/#
+4. naviage to **MY -> My Scenarios:** https://macsgame.com/my/scenarios.html
+5. Choose **Create New** https://macsgame.com/my/edit-scenario.html
 6. Press **Choose File** button and select your zip archive
 7. Website will parse your script file and show its data. Press **Add**
 8. Now your script is uploaded. Press **Ready** and **Save** to show it in the game.
 
 Now new scenario should appear for you in game.
 
-On scenarios page (navigate to **Game -> Scenarios** https://maxsrv.automania.net/game/scenarios.html ) you can see all available scenarios. 
+On scenarios page (navigate to **Game -> Scenarios** https://macsgame.com/game/scenarios.html ) you can see all available scenarios. 
 
-Choose any scenario created by other member (for example: https://maxsrv.automania.net/game/scenario/3.html) and press **Add to my list**  in order to see it in game.
+Choose any scenario created by other member (for example: https://macsgame.com/game/scenario/3.html) and press **Add to my list**  in order to see it in game.
 
 # API Specification
 This section contains information about objects and its APIs that hosting application exposes to lua side. 
