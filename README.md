@@ -49,7 +49,19 @@ Initialization script and Runtime script have different contexts so values defin
 
 Please note that some APIs are available for Initialization script and not available for Runtime script, and vise versa.
 
-## Uploading and using scenarios
+## Testing scenarios
+
+To start creating your scenario you should open test match script which is located in game resources folder: **Resources/Scripts/testMatch.lua**:
+
+ ![](Images/initScript1.jpg) 
+
+You can open it with any text editor, I would recommend you Visual Studio Code, Atom, Sublime Text or Notepad++ because they have option to highlight script syntax, it is very useful.
+
+In order to run the script, start the game, go LOCAL GAME and press small `{>}` button on the top-left corner of the screen. Game will start a local game with the content of `testMatch.lua`.
+
+For details about initializion script please refer to [Guide for Initialization script](API/GudeForInitializationScript.md).
+
+## Uploading scenarios for community
 After you done with your scenario and want to show it to community you should do following steps:
 
 1. rename initialization script file (**testMatch.lua** file) into **initScript.lua**
