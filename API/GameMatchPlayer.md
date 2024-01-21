@@ -103,13 +103,13 @@ Availability:
 ```
 void setAIRefuelAutomatically(bool refuelAutomatically)
 ```
-Tells to player if it should refuel its units automatically or not. Set to `true` by default in order to give AI some advantage in games with gasoline enabled. Set if to `false` if you want it to have finit amount of gasoline. Note: AI cannot refuel his units in regular way. 
+**DEPRICATED** Tells to player if it should refuel its units automatically or not. Set to `true` by default in order to give AI some advantage in games with gasoline enabled. Set if to `false` if you want it to have finit amount of gasoline. Note: AI cannot refuel his units in regular way. 
 
 Parameters:
 - **bool refuelAutomatically** - indication if AI should refuel units automatically
 
 Availability: 
-- [x] Init, v10.1
+- [x] Init, v10.1, depricated: v19.0.2, removed: v20.0.0 
 - [ ] Runtime
 
 ---

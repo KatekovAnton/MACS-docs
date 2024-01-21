@@ -129,7 +129,3 @@ Built-in event system allow you to track and handle some game events.
 
 # Quest System
 Quest system is based on handling events.
-
-# Revisions
-Current version: 10.2.1
-    
