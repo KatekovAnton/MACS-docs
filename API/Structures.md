@@ -1,14 +1,11 @@
 # Structures
-M.A.X. Touch Sandbox provide a number of structures to make API more expressive. 
 
-Availability: 
-- [x] Init
-- [x] Runtime
+MACs Sandbox provide a number of structures to make API more expressive. 
 
-# Point
+## Point
 2-dimentional point with coordinates (x, y).
 
-## **Constructor**
+### **Constructor**
 ---
 ```
 Point()
@@ -18,7 +15,7 @@ Point()
 Point(Float x, Float y)
 ```
 
-## **Properties**
+### **Properties**
 ---
 ```
 x
@@ -28,10 +25,10 @@ x
 y
 ```
 
-# Size
+## Size
 2-dimentional size with dimentions (width, height).
 
-## **Constructors**
+### **Constructors**
 ---
 ```
 Size()
@@ -41,7 +38,7 @@ Size()
 Size(Float w, Float h)
 ```
 
-## **Properties**
+### **Properties**
 ---
 ```
 w
@@ -50,10 +47,10 @@ w
 h
 ```
 
-# Rect
+## Rect
 2-dimentional rectangle with Point origin and Size dimentions.
 
-## **Constructor**
+### **Constructor**
 ---
 ```
 Rect()
@@ -63,9 +60,9 @@ Rect()
 Rect(Float x, Float y, Float w, Float h)
 ```
 
-## **Properties**
+### **Properties**
 ---
-```
+```lua
 x
 ```
 ```
@@ -78,21 +75,12 @@ w
 h
 ```
 
-# Color
+## Color
+
 Color in RGBA color space. Each component range is 0-255
 
-## **Constructor**
+### **Constructor**
 ---
 ```
 Color(Int r, Int g, Int b, Int a)
 ```
-
-# GameMatchPlayerInfo
-Initial information about player.
-
-## **Constructor**
----
-```
-GameMatchPlayerInfo(Int playerId, Int clan, String name, Color color, Bool isAI, String AIName, Int team)
-```
-playerId for 1st player should be equal 1 and incremented by 1 for each player.

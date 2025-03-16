@@ -10,16 +10,19 @@ Not available because this object is managed by hosting application
 ```
 Int getNumberOfPlayers()
 ```
+Returns the total amount of players in the game.
 
 ---
 ```
 GameMatchPlayer playerAtIndex(Int index)
 ```
+Returns a player at the specified index.
 
 ---
 ```
 GameMap getMap()
 ```
+Returns a map object.
 
 ---
 ```

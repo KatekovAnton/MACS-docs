@@ -1,6 +1,8 @@
 # Constants
 
-## **Parameter types**
+API Constants are listed in `customMissionLogic.lua`. Their values aligns with the game client, so please do not modify it.
+
+## Parameter Types
 
 - UNIT_PARAMETER_TYPE_HEALTH      = 1
 - UNIT_PARAMETER_TYPE_SHOTS       = 2
@@ -14,3 +16,17 @@
 - UNIT_PARAMETER_TYPE_FUEL        = 25
 - UNIT_PARAMETER_TYPE_GOLD        = 26
 - UNIT_PARAMETER_TYPE_MATERIAL    = 27
+- UNIT_PARAMETER_TYPE_ENERGY      = 28
+
+## Resource Types
+
+- RESOURCE_TYPE_RAW               = 0
+- RESOURCE_TYPE_FUEL              = 1
+- RESOURCE_TYPE_GOLD              = 2
+
+## Deploy Types
+
+- DEPLOY_LOGIC_NONE               = 0
+- DEPLOY_LOGIC_POSITION           = 1
+- DEPLOY_LOGIC_ZONE               = 2
+- DEPLOY_LOGIC_PREDEFINED         = 3

@@ -1,12 +1,15 @@
 # MACS-docs
+
 This repo contains documentation and specifications for MACS (Mechanized Assault Commanders) build-in scripting system
 
-# Table of Contents
+## Table of Contents
 1. [Overview](#Overview)
-    1. [Initialization script](#Initialization-script)
-    2. [Runtime script](#Runtime-script)
-    3. [Executing](#Executing)
-    4. [Uploading / using scenarios](#Uploading-and-using-scenarios)
+    - [Useful Hints](#Useful-hints)
+2. [Scripting](#Scripting)
+    1. [Loading Scripts](#Loading-Scripts)
+    2. [Executing Scripts](#Executing-Scripts)
+    3. [Testing Scripts](#Testing-Scripts)
+    4. [Uploading scenarios for community](#Uploading-scenarios-for-community)
 2. [API Specification](#API-Specification)
     1. [Structures](#Structures)
     2. [Game](#Game)
@@ -16,40 +19,37 @@ This repo contains documentation and specifications for MACS (Mechanized Assault
     6. [GameUnit](#GameUnit)
 3. [Event System](#Event-System)
 4. [Quest System](#Quest-System)
-5. [Revisions](#Revisions)
 
-# Overview
-This specification explains about MACS Touch embedded scripting API. Using this API you can write your own scenarios.
+## Overview
 
-Facebook community:
-https://www.facebook.com/groups/1420889268172393/
+This specification explains about MACS embedded scripting API. Using this API you can write your own scenarios.
 
-## Useful hints:
+The script can be used to initialize the match by modifying the initail game conditions, or affect the game itself by modifying in-game behavior.
+
+### Useful hints
+
 - **In order to find unit types**, open **Units/originalUniset.json**, refer to **_type** value. For example, **Heavy vehicle plant** is **hvplant**.
 - **In order to find available maps** refer to **loadedRemoteMaps.json** in **Saves** folder. You should put desired map's **file** property + **.wrl**, for example **224x2246.wrl** to start on **Revelation** map.
 
-## Initialization script
-Initialize script is a script that will initialize match. It should be named initScript.lua and should be located in root directory of scenario zip arhive. 
+## Scripting
 
-This script will be executed during game load in order to initialize the game. 
+### Loading Scripts
 
-For details about initializion script please refer to [Guide for Initialization script](API/GudeForInitializationScript.md).
+Game loads the file named initScript.lua. The file should be located in root directory of the scenario's zip arhive.
 
-## Runtime script
-> This is still work in progres and not supported for scenarios. You can play with tutorial0Runtime.lua
+For details about initializion script please refer to [Scripting Guide](Guides/Scripting.md).
 
-Runtime script is a script that contains logic that will be executed during the match, on top of running game. Game is constantly calling script event handler on each game event and allows script to handle those events by executing some logic at this moment.
+### Executing Scripts
 
-For details about runtime script please refer to [Guide for Runitme script](API/GudeForRuntimeScript.md).
+Scripts will be running on the main thread so please avoid 
 
-## Executing
-Initialization script and Runtime script will be running in main thread.
+The script will be provided with a memory pool that is not syncronized between players you should not retain any objects in script variables outside of the API methods. Instead, you need to retrieve a needed data on-the-fly.
 
-Initialization script and Runtime script have different contexts so values defined on Initialization script will not be available in Runtime script.
+You can still create some global structure the first time you run the script, but remember that you do this at your own risk, and it is entirely up to you to keep that structure (and all the script behvior derrived from it) reproducible.
 
-Please note that some APIs are available for Initialization script and not available for Runtime script, and vise versa.
+Our recommendation is to follow the stateless approach as much as possible, leaving the management of persistent data to the hosting game.
 
-## Testing scenarios
+### Testing Scripts
 
 To start creating your scenario you should open test match script which is located in game resources folder: **Resources/Scripts/testMatch.lua**:
 
@@ -59,9 +59,10 @@ You can open it with any text editor, I would recommend you Visual Studio Code, 
 
 In order to run the script, start the game, go LOCAL GAME and press small `{>}` button on the top-left corner of the screen. Game will start a local game with the content of `testMatch.lua`.
 
-For details about initializion script please refer to [Guide for Initialization script](API/GudeForInitializationScript.md).
+For details about initializion script please refer to [Scripting Guide](Guides/Scripting.md).
 
-## Uploading scenarios for community
+### Uploading scenarios for community
+
 After you done with your scenario and want to show it to community you should do following steps:
 
 1. rename initialization script file (**testMatch.lua** file) into **initScript.lua**
@@ -79,53 +80,40 @@ On scenarios page (navigate to **Game -> Scenarios** https://macsgame.com/game/s
 
 Choose any scenario created by other member (for example: https://macsgame.com/game/scenario/3.html) and press **Add to my list**  in order to see it in game.
 
-# API Specification
+## API Specification
+
 This section contains information about objects and its APIs that hosting application exposes to lua side. 
 
 **Structures** are passed to script by value with transferring ownership into lua.
 
 **Objects** will be passed by pointer and will stay owned/managed by MACS engine. Do not retain them for a long time - basically script will not know when object will be deleted.
 
-## Structures
-- Color
-- Rect
-- Size
-- Point
-- GameMatchPlayerInfo
-
-[Structures API description](API/Structures.md)
-
-## Constants
+### Constants
 
 [API's contstants description](API/Constants.md)
 
-## Game
-Represents top-level game state. Game object is responsible for working with UI and user input: windows, visual pointers, UI blocks and so on.
+### Structures
 
-[Game API description](API/Game.md)
+- [Color](API/Structures.md##Color)
+- [Rect](API/Structures.md##Rect)
+- [Size](API/Structures.md##Size)
+- [Point](API/Structures.md##Point)
+- [GameMatchPlayerInfo](API/GameMatchPlayerInfo.md)
+- [GameMatchDeployLogic](API/GameMatchDeployLogic.md)
+- [GameMatchSettings](API/GameMatchSettings.md)
+- [GameEvent](API/GameEvent.md)
 
-## GameMap
-Represents a map. Map contains infomation about
+### Objects
 
-[GameMap API description](API/GameMap.md)
+- [GameMap](API/GameMap.md)
+- [GameMatch](API/GameMatch.md)
+- [GameMatchPlayer](API/GameMatchPlayer.md)
+- [GameUnit](API/GameUnit.md)
 
-## GameMatch
-Represents match. Match contains all players and some extra information about its state.
+## Event System
 
-[GameMatch API description](API/GameMatch.md)
-
-## GameMatchPlayer
-Represents player
-
-[GameMatchPlayer API description](API/GameMatchPlayer.md)
-
-## GameUnit
-Represents unit
-
-[GameUnit API description](API/GameUnit.md)
-
-# Event System
 Built-in event system allow you to track and handle some game events.
 
-# Quest System
+## Quest System
+
 Quest system is based on handling events.

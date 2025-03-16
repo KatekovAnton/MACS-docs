@@ -2,7 +2,8 @@
 
 This guide will explain the process of creating **initScript.lua** - script that defines a phase of match initialization.
 
-# Table of Contents
+## Table of Contents
+
 1. [Overview](#Overview)
 2. [Structure](#Structure)
 3. [Settings and players](#Settings-and-players)
@@ -14,6 +15,11 @@ This guide will explain the process of creating **initScript.lua** - script that
     1. [Map loaded](#Map-loaded)
     2. [Match loaded](#Match-loaded)
     3. [Match prepared](#Match-prepared)
+
+    <!-- 4. player deploy logic
+    5 OnPlayerDeployStarted
+    6 OnPlayerDeployFinished -->
+
 7. [Done!](#Done!)
 
 Example scenarios:
@@ -48,35 +54,47 @@ Lets look at the script structure
 ![](../Images/initScript2.jpg) 
 
 ## Settings and players
-```
+
+```lua
 local testMatchSettings = CustomMatchSettings()
 ```
+
 Here we create game settings - defining rules, map, players, game name and so on. Multiplayer scenario will be little bit different, but basic idea will be the same.
 
 ## Adding units
+
 ### Using Unit List
+
 You can add many units by simple setup list of units with some starting parameters.
-```
+
+```lua
 local unitList1 = {
     ...
 }
 testMatchLogic:addInitialUnitsForPlayer(unitList1, 1)
 ```
+
 Here we defining units for player1.
 
 Unit List parameters examples:
-```
+
+```lua
 {31, 50, "fuelstore", UNIT_PARAMETER_TYPE_FUEL, 10}
 ```
+
 Create Fuel Store on position (31, 50) and set Fuel to 10. This is old format and not recommended for usage.
 Recommended format:
-```
+
+```lua
 {32, 50, "matstore", {material = 42, name = 'matStore1'}}
 ```
+
 Creates Material Store on position (32, 50) and set Materials to 42.
 Also this unit give name "matStore1". This name can be used for quick access later in script.
+
 All list of supported parameters:
-```
+
+```lua
 material = 42 -- set materials
 fuel = 10 -- set fuel
 gold = 20 -- set gold
@@ -85,17 +103,23 @@ name = 'unit_name' -- set unit name for access later in script or engine
 produce = 'type' -- set unit type for producing. See unit:setBuildUnit(produce, speed)
 speed = 1 -- set unit speed fo producing. See unit:setBuildUnit(produce, speed)
 ```
+
 ### Using Complex Plan export feature
+
 You also can create units in onMatchLoaded(game, match) method described is section [Match loaded](#Match-loaded).
+
 There are feature for simplify this process.
+
 Start Local Game (one or more for each players you needed to setup with same settings and map).
 Place units and buildings you needed to export during Complex Plan mode and then select: Menu/Save Game.
 The new file units.lua will be saved to document directory (same location as options.json, savegames etc.).
 Open this file and copy any code you needed to your Script.
 Generated code declare all nessesary variables and require only Match var as input value.
-```
+
+```lua
 local match = Match
 ```
+
 Remove this line of code if you will paste all of generated code under the onMatchLoaded method.
 The generated code contained logic for:
 1. place units you place to map in Complex Plan mode
@@ -108,7 +132,8 @@ You can use this generated code, insert it to onMatchLoaded method. If some chan
 Tou can create more local saves for each player and use they for reexport player units you needed to modify. Test it anr load againg for new changes and reexport.
 
 ## Player status
-```
+
+```lua
 local data1 = {gold = 1000, cameraX = 83, cameraY = 30, cameraZoom = 1}
 ```
 It means start gold, initial camera position and scale.
@@ -116,14 +141,17 @@ It means start gold, initial camera position and scale.
 ## Loading Phases
 
 ### Map loaded
+
 ---
-```
+```lua
 function testMatchLogic:onMapLoaded(game, match)
 ```
+
 This function called when map is initialized. Resources are generated randomly so in order to place mining stations we should define resource fields.
 
 Example of adding initial mineral field:
-```
+
+```lua
 function testMatchLogic:onMapLoaded(game, match)
 
     -- put resource field
@@ -134,14 +162,15 @@ end
 ```
 
 ### Match loaded
+
 ---
-```
+```lua
 function testMatchLogic:onMatchLoaded(game, match)
 ```
 
 This function called when everything is loaded and initial units specified before was added. You can still add units using different syntax.
 
-```
+```lua
 function testMatchLogic:onMatchLoaded(game, match)
 
     -- create interceptor
@@ -168,13 +197,14 @@ end
 See section [Using Complex Plan export feature](#Using-Complex-Plan-export-feature) for simplify unit cretions.
 
 ### Match prepared
+
 ---
-```
+```lua
 function testMatchLogic:onMatchPrepared(game, match)
 ```
 This function called when after everything is prepared to game. Here you can set last parameters that will be applied after applying initial upgrades, placement logic and so on.
 
-```
+```lua
 function testMatchLogic:onMatchPrepared(game, match)
 
     -- get awac and set 1 gasoline to it
@@ -184,9 +214,6 @@ function testMatchLogic:onMatchPrepared(game, match)
 end
 ```
 
-
 ## Done!
 
 After you modified testMatch.lua script you should save it (please keep original copy), overwrite existing script, and start test match in game to see your changes in game.
-
-

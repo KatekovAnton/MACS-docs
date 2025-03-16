@@ -1,5 +1,5 @@
 # GameUnit
-Represents unit
+Represents a unit in the game.
 
 ## **Constructor**
 ---
@@ -7,46 +7,61 @@ Not available because this object is managed by hosting application
 
 ## **Methods**
 ---
-```
+```lua
 Int getId()
 ```
 Return unit's unique identifier.
 
-Availability: 
-- [x] Init
-- [x] Runtime
+---
+```lua
+String getType()
+```
+Return unit's type.
 
 ---
-```
-void placeUnitOnMap(Bool force)
-```
-Place unit on game field. Will not trigger autofire.
-
-Availability: 
-- [x] Init
-- [ ] Runtime
-
----
-```
+```lua
 Point getPosition()
 ```
 Return unit's position.
 
-Availability: 
-- [x] Init
-- [x] Runtime
-
 ---
-```
+```lua
 bool getIsMoving()
 ```
-
-Availability: 
-- [x] Init
-- [x] Runtime
+Returns true if unit is moving right now.
 
 ---
+```lua
+Int getUnitNumber()
 ```
+Returns a searial number of the unit.
+
+---
+```lua
+String getUnitSpecialName()
+```
+Returns a consistent name of the unit. The value is compatible with the quest and trigger systems.
+
+---
+```lua
+bool getIsOn()
+```
+Returns if the unit is turned on.
+
+---
+```lua
+bool getIsPlacedOnMap()
+```
+Returns if the unit is placed on map.
+
+---
+```lua
+bool getIsLoaded()
+```
+Returns if the unit is loaded into a transport or not.
+
+---
+```lua
 void setParameterValue(Int parameterType, Int newValue)
 ```
 Parameters for storage can be set in any moment of initialization but consumable parameters should be set inside of **onMatchPrepared** when all initial upgrades already took effects. Otherwise this changes will be ignored.
@@ -56,19 +71,11 @@ Notes:
 
 For values of **parameterType** refer to [API's contstants description](Constants.md)
 
-Availability: 
-- [x] Init
-- [ ] Runtime
-
 ---
-```
+```lua
 int getParameterValue(Int parameterType)
 ```
 Refer to [API's contstants description](Constants.md)
-
-Availability: 
-- [x] Init
-- [x] Runtime
 
 ---
 ```
@@ -76,56 +83,42 @@ int getParameterMaxValue(Int parameterType)
 ```
 Refer to [API's contstants description](Constants.md)
 
-Availability: 
-- [x] Init
-- [x] Runtime
-
 ---
 ```
 Point getPathTarget()
 ```
 
-Availability: 
-- [x] Init
-- [x] Runtime
+---
+```
+void placeUnitOnMap(Bool force)
+```
+Place unit on game field. Will not trigger autofire.
 
 ---
 ```
 void turnOn()
 ```
-
-Availability: 
-- [x] Init
-- [ ] Runtime
+Turns the unit on.
 
 ---
 ```
 void turnOff()
 ```
-
-Availability: 
-- [x] Init
-- [ ] Runtime
+Turns the unit off.
 
 ---
 ```
 void setDirection(Int direction)
 ```
-
-Availability: 
-- [x] Init
-- [ ] Runtime
+Sets the unit direction. Direction should be 0 to 7.
 
 ---
 ```
 void storeUnitToCargo(GameUnit unit)
 ```
-Put given unit into a cargo.
+Put a given unit into a cargo of the specified unit.
 
-Availability: 
-- [x] Init
-- [ ] Runtime
-
+<!-- setBuildUnit -->
 ---
 ```
 void setBuildUnit(String type, Int speed)
@@ -135,7 +128,3 @@ Set a task to build unit.
 Parameters:
 - **String type** - type of unit to build
 - **Int speed** - Speed to build with. Valid values: 1 - 1x speed, 2 - 2x speed, 4 - 4x speed.
-
-Availability: 
-- [x] Init, v10.1
-- [ ] Runtime

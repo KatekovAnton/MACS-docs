@@ -1,16 +1,23 @@
 # GameMap
-Represents map. 
 
+Represents the game map. 
+
+```
+String getFileName()
+```
+Retruns map file name
+
+---
 ```
 Int getWidth()
 ```
-Retrun map width
+Retruns map width
 
 ---
 ```
 Int getHeight()
 ```
-Retrun map height
+Retruns map height
 
 ---
 ```
@@ -21,10 +28,6 @@ Put initial resources (14 rawmat and 8 fuel) into a designated position.
 Parameters:
 - **Int x** - x coordinate of cell
 - **Int y** - y coordinate of cell
-
-Availability: 
-- [x] Init
-- [ ] Runtime
 
 ---
 ```
@@ -40,8 +43,24 @@ Parameters:
 - **Int x** - x coordinate of cell
 - **Int y** - y coordinate of cell
 - **Int resource** - Resource type: RESOURCE_TYPE_RAW, RESOURCE_TYPE_FUEL or RESOURCE_TYPE_GOLD
-- **Int amount** - Amount of resource to place. 0-16
+- **Int amount** - Amount of resource to place. 0-32
 
-Availability: 
-- [x] Init
-- [ ] Runtime
+---
+```
+Int getResourceType(Int x, Int y)
+```
+Returns the type of resource in the specified cell. Resource types are listed in [Constrants](Constants.md##Resource-Types)
+
+Parameters:
+- **Int x** - x coordinate of cell
+- **Int y** - y coordinate of cell
+
+---
+```
+Int getResourceValue(Int x, Int y)
+```
+Returns the amount of resource in the specified cell.
+
+Parameters:
+- **Int x** - x coordinate of cell
+- **Int y** - y coordinate of cell
