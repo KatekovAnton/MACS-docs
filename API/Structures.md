@@ -3,9 +3,11 @@
 MACs Sandbox provide a number of structures to make API more expressive. 
 
 ## Point
+
 2-dimentional point with coordinates (x, y).
 
-### **Constructor**
+### Constructor
+
 ---
 ```
 Point()
@@ -15,7 +17,7 @@ Point()
 Point(Float x, Float y)
 ```
 
-### **Properties**
+### Properties
 ---
 ```
 x
@@ -26,9 +28,10 @@ y
 ```
 
 ## Size
+
 2-dimentional size with dimentions (width, height).
 
-### **Constructors**
+### Constructors
 ---
 ```
 Size()
@@ -38,7 +41,7 @@ Size()
 Size(Float w, Float h)
 ```
 
-### **Properties**
+### Properties
 ---
 ```
 w
@@ -48,9 +51,11 @@ h
 ```
 
 ## Rect
+
 2-dimentional rectangle with Point origin and Size dimentions.
 
-### **Constructor**
+### Constructor
+
 ---
 ```
 Rect()
@@ -60,18 +65,18 @@ Rect()
 Rect(Float x, Float y, Float w, Float h)
 ```
 
-### **Properties**
+### Properties
 ---
 ```lua
 x
 ```
-```
+```lua
 y
 ```
-```
+```lua
 w
 ```
-```
+```lua
 h
 ```
 
@@ -79,7 +84,8 @@ h
 
 Color in RGBA color space. Each component range is 0-255
 
-### **Constructor**
+### Constructor
+
 ---
 ```
 Color(Int r, Int g, Int b, Int a)

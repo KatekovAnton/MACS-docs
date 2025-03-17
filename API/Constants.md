@@ -36,3 +36,8 @@ API Constants are listed in `customMissionLogic.lua`. Their values aligns with t
 - DEPLOY_LOGIC_POSITION           = 1
 - DEPLOY_LOGIC_ZONE               = 2
 - DEPLOY_LOGIC_PREDEFINED         = 3
+
+## Survey types
+
+- MAX_MATCH_SURVEY_MIN = 0,
+- MAX_MATCH_SURVEY_FULL = 1

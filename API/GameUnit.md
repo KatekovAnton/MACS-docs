@@ -1,11 +1,14 @@
 # GameUnit
+
 Represents a unit in the game.
 
-## **Constructor**
+## Constructor
+
 ---
 Not available because this object is managed by hosting application
 
-## **Methods**
+## Methods
+
 ---
 ```lua
 Int getId()
