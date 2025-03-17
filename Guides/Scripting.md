@@ -1,28 +1,26 @@
 # Initialization scripting
 
-This guide will explain the process of creating **initScript.lua** - script that defines a phase of match initialization.
-
 ## Table of Contents
 
 1. [Overview](#Overview)
-2. [Structure](#Structure)
-3. [Settings and players](#Settings-and-players)
-4. [Adding units](#Adding-units)
-    1. [Using Unit List](#Using-Unit-List)
-    2. [Using Complex Plan export feature](#Using-Complex-Plan-export-feature)
-5. [Player status](#Player-status)
-6. [Loading Phases](#Loading-Phases)
+2. [Settings and players](#Settings-and-players)
+3. [Adding units](#Adding-units)
+4. [Player status](#Player-status)
+5. [Loading Phases](#Loading-Phases)
     1. [Map loaded](#Map-loaded)
     2. [Match loaded](#Match-loaded)
+    3. [Match prepared](#Match-prepared)
+    3. [Match prepared](#Match-prepared)
     3. [Match prepared](#Match-prepared)
 
     <!-- 4. player deploy logic
     5 OnPlayerDeployStarted
     6 OnPlayerDeployFinished -->
 
-7. [Done!](#Done!)
+6. [Done!](#Done!)
 
 Example scenarios:
+
 - [Alien Attack](../Examples/Alien_attack/initScript.lua)
 - [Tank horde](../Examples/Tank_horde/initScript.lua)
 - [Man versus Machine](../Examples/Man_versus_Machine/initScript.lua)
@@ -30,42 +28,71 @@ Example scenarios:
 
 ## Overview
 
-Initialize script will specify:
-- game information: name, description
+On the start of the game, the script can specify:
+
+- game information like the game name and description
 - uniset
 - map
 - resource map
 - players
 - initial units
 - initial upgrades
+- deploy logic
 
-To start creating your scenario you should open test match script which is located in game resources folder: **Resources/Scripts/testMatch.lua**:
+To start creating your scenario, please open test match script which is located in game resources folder `Resources/Scripts/testMatch.lua`:
 
  ![](../Images/initScript1.jpg) 
 
-You can open it with any text editor, I would recommend you Visual Studio Code, Atom, Sublime Text or Notepad++ because they have option to highlight script syntax, it is very useful.
+You can open it with any text editor. We recommend Visual Studio Code, Atom, Sublime Text or Notepad++ because they have option to highlight script syntax, which is very useful.
 
-In order to run the script, start the game, go LOCAL GAME and press small `{>}` button on the top-left corner of the screen. Game will start a local game with the content of `testMatch.lua`.
-
-## Structure
-
-Lets look at the script structure
-
-![](../Images/initScript2.jpg) 
+In order to run the script, start the game, go `LOCAL GAME` and press small `{>}` button on the top-left corner of the screen. Game will start a local game with the content of `testMatch.lua`.
 
 ## Settings and players
 
+First, you should craete a game settings - defining rules, map, players, game name and so on. 
+
 ```lua
 local testMatchSettings = CustomMatchSettings()
+testMatchSettings.mapFileName = '112x1123.wrl'
+testMatchSettings.mapName = 'Incandescent machines'
+testMatchSettings:addPlayer(GameMatchPlayerInfo(1, 2, 'Player 1', Color(237, 237, 54, 255), false, '', 1))
+testMatchSettings:addPlayer(GameMatchPlayerInfo(2, 4, 'Player 2', Color(25, 116, 210, 255), true, '', 1))
+local gameSettings =
+{
+    game_name = 'Example',
+    game_description = 'An example scenario!',
+    uniset_name = "MACs",
+    uniset_id = 87,
+}
+testMatchSettings:applySettings(gameSettings) 
 ```
 
-Here we create game settings - defining rules, map, players, game name and so on. Multiplayer scenario will be little bit different, but basic idea will be the same.
+Full list of the `game_settings` parameters are:
+
+- `uniset_name`
+- `uniset_id`
+- `game_name`
+- `start_gold`
+- `amount of material`
+- `total count of resource placements`
+- `laying ability`
+- `enable gasoline`
+- `expensive reload/repair/rearm`
+- `survey flag`
+- `one subbase`
+- `generate resources`
+- `complex construction`
+- `script deploy`
+- `fixed teams`   
+- `min_version`
 
 ## Adding units
 
+Keep in mind that you can only create units and set upgrades only if player already has a clan set.
+
 ### Using Unit List
 
-You can add many units by simple setup list of units with some starting parameters.
+You can add any units by simply setting the list of units with their starting parameters.
 
 ```lua
 local unitList1 = {
@@ -74,23 +101,20 @@ local unitList1 = {
 testMatchLogic:addInitialUnitsForPlayer(unitList1, 1)
 ```
 
-Here we defining units for player1.
-
-Unit List parameters examples:
+Here we defining units for player1. Unit List parameters examples:
 
 ```lua
 {31, 50, "fuelstore", UNIT_PARAMETER_TYPE_FUEL, 10}
 ```
 
-Create Fuel Store on position (31, 50) and set Fuel to 10. This is old format and not recommended for usage.
-Recommended format:
+Create Fuel Store on position (31, 50) and set Fuel to 10. This is old format and not recommended for usage. The recommended format:
 
 ```lua
 {32, 50, "matstore", {material = 42, name = 'matStore1'}}
 ```
 
-Creates Material Store on position (32, 50) and set Materials to 42.
-Also this unit give name "matStore1". This name can be used for quick access later in script.
+It creates a Material Storage on position (32, 50) and sets Materials to 42.
+Also this unit will be given a name "matStore1". This name can be used for quick and convenient access later in the script runtime or reused in campaign.
 
 All list of supported parameters:
 
@@ -104,33 +128,6 @@ produce = 'type' -- set unit type for producing. See unit:setBuildUnit(produce, 
 speed = 1 -- set unit speed fo producing. See unit:setBuildUnit(produce, speed)
 ```
 
-### Using Complex Plan export feature
-
-You also can create units in onMatchLoaded(game, match) method described is section [Match loaded](#Match-loaded).
-
-There are feature for simplify this process.
-
-Start Local Game (one or more for each players you needed to setup with same settings and map).
-Place units and buildings you needed to export during Complex Plan mode and then select: Menu/Save Game.
-The new file units.lua will be saved to document directory (same location as options.json, savegames etc.).
-Open this file and copy any code you needed to your Script.
-Generated code declare all nessesary variables and require only Match var as input value.
-
-```lua
-local match = Match
-```
-
-Remove this line of code if you will paste all of generated code under the onMatchLoaded method.
-The generated code contained logic for:
-1. place units you place to map in Complex Plan mode
-2. setup Resource map with same resources values under all Mining Stations
-3. create units stored to any transports
-4. turn on all units which turn on in Complex Plan Mode. This action located after all unit and building creations
-5. store units in transports
-
-You can use this generated code, insert it to onMatchLoaded method. If some changes required after you test new match then you can load saved Complex Plan, make changes and save again fo reexport new units.lua file.
-Tou can create more local saves for each player and use they for reexport player units you needed to modify. Test it anr load againg for new changes and reexport.
-
 ## Player status
 
 ```lua
@@ -140,6 +137,10 @@ It means start gold, initial camera position and scale.
 
 ## Loading Phases
 
+Game defines a few phases of loading the game. During this, a corresponding script function is called. You can use these function in analyse the match state and perform different custom actions.
+
+Resources are generated randomly in few scenarios. Please keep in mind that mining stations should be set after the resources in their cells are generated.
+
 ### Map loaded
 
 ---
@@ -147,9 +148,7 @@ It means start gold, initial camera position and scale.
 function testMatchLogic:onMapLoaded(game, match)
 ```
 
-This function called when map is initialized. Resources are generated randomly so in order to place mining stations we should define resource fields.
-
-Example of adding initial mineral field:
+This function is being called when map is initialized.
 
 ```lua
 function testMatchLogic:onMapLoaded(game, match)
@@ -161,14 +160,14 @@ function testMatchLogic:onMapLoaded(game, match)
 end
 ```
 
-### Match loaded
+### Match Loaded
 
 ---
 ```lua
 function testMatchLogic:onMatchLoaded(game, match)
 ```
 
-This function called when everything is loaded and initial units specified before was added. You can still add units using different syntax.
+This function is being called when everything is loaded and initial units specified in lists were added.
 
 ```lua
 function testMatchLogic:onMatchLoaded(game, match)
@@ -176,13 +175,11 @@ function testMatchLogic:onMatchLoaded(game, match)
     -- create interceptor
     match:playerAtIndex(2):createUnit(62, 41, 'inter'):placeUnitOnMap(false)
 
-    -- create APC with 2 infiltrators inside
+    -- create APC with an infantry inside
     local pcan1 = match:playerAtIndex(2):createUnit(69, 44, 'pcan')
     pcan1:placeUnitOnMap(false)
     local inf1 = match:playerAtIndex(2):createUnit(69, 43, 'infantry')
-    local inf2 = match:playerAtIndex(2):createUnit(69, 43, 'infil')
     pcan1:storeUnitToCargo(inf1)
-    pcan1:storeUnitToCargo(inf2)
 
     -- create truck with minerals
     local truck1 = match:playerAtIndex(2):createUnit(36, 59, 'truck')
@@ -194,15 +191,14 @@ function testMatchLogic:onMatchLoaded(game, match)
 
 end
 ```
-See section [Using Complex Plan export feature](#Using-Complex-Plan-export-feature) for simplify unit cretions.
 
-### Match prepared
+### Match Prepared
 
 ---
 ```lua
 function testMatchLogic:onMatchPrepared(game, match)
 ```
-This function called when after everything is prepared to game. Here you can set last parameters that will be applied after applying initial upgrades, placement logic and so on.
+This function is being called when after everything is prepared to game. Here you can set last parameters that will be applied after applying initial upgrades, placement logic and so on.
 
 ```lua
 function testMatchLogic:onMatchPrepared(game, match)
@@ -211,6 +207,46 @@ function testMatchLogic:onMatchPrepared(game, match)
     local awac = match:playerAtIndex(2):getUnitWithId(4)
     awac:setParameterValue(UNIT_PARAMETER_TYPE_GAS, 10)
 
+end
+```
+
+### Deploy Started
+
+---
+```lua
+function testMatchLogic:OnPlayerDeployStarted(match, player)
+```
+This function is being called during player deploy after his resources has been generated. You can add initial upgrades here.
+
+```lua
+function testMatchLogic:OnPlayerDeployStarted(match, player)
+    
+    -- add attack upgrade to Artillery
+    match:playerAtIndex(1):addUnitTypeUpgrade('arturret', UNIT_PARAMETER_TYPE_ATTACK, 2)
+
+end
+```
+
+### Deploy Finished
+
+---
+```lua
+function testMatchLogic:onPlayerDeployFinished(match, player)
+```
+This function is being called during the player deploy pricess, right after initial units (default mining station and other) has been instantiated.
+
+```lua
+function testMatchLogic:onPlayerDeployFinished(match, player)
+    
+    if player:getPlayerId() == 1 then
+        player:setCameraPosition(58, 10, 1)
+        local mining = player:createUnit(58, 10, 'mining'):placeUnitOnMap(false)
+    end
+
+    if player:getPlayerId() == 2 then
+        player:setCameraPosition(101, 101, 1.5)
+        local mining = player:createUnit(101, 101, 'mining'):placeUnitOnMap(false)
+    end
 end
 ```
 
