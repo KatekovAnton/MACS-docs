@@ -1,11 +1,14 @@
 # GameMatch
-Represents match. 
 
-## **Constructors**
+Represents the match. 
+
+## Constructors
+
 ---
 Not available because this object is managed by hosting application
 
-## **Players**
+## Methods
+
 ---
 ```
 Int getNumberOfPlayers()
@@ -26,19 +29,24 @@ Returns a map object.
 
 ---
 ```
+GameMatchSettings getSettings()
+```
+Returns the game game settings.
+
+---
+```
 GameUnit getUnitWithId(Int unitId)
 ```
-
-! You should not retain this unit in script for a long time because unit can be killed and script will never know it
+Returns the unit with a specified id.
 
 ---
 ```
 void setUnitName(Int unitId, String name)
 ```
+Retains the name for a unit with a given id.
 
 ---
 ```
 GameUnit getUnitWithName(String unitName)
 ```
-
-! You should not retain this unit in script for a long time because unit can be killed and script will never know it
+Returns the unit with a name specified.

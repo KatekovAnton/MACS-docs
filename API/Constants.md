@@ -24,6 +24,12 @@ API Constants are listed in `customMissionLogic.lua`. Their values aligns with t
 - RESOURCE_TYPE_FUEL              = 1
 - RESOURCE_TYPE_GOLD              = 2
 
+## Resource Levels
+
+- RESOURCE_LEVEL_POOR             = 0
+- RESOURCE_LEVEL_MEDIUM           = 1
+- RESOURCE_LEVEL_RICH             = 2
+
 ## Deploy Types
 
 - DEPLOY_LOGIC_NONE               = 0
