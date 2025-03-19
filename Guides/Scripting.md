@@ -2,18 +2,18 @@
 
 ## Table of Contents
 
-1. [Overview](##Overview)
-2. [Settings and players](##Settings-and-players)
-3. [Adding units](##Adding-units)
-4. [Player status](##Player-status)
-5. [Loading Phases](##Loading-Phases)
-    1. [Map Loaded](###Map-loaded)
-    2. [Match Loaded](###Match-loaded)
-    3. [Match Prepared](###Match-prepared)
-    4. [Deploy Started](###Deploy-Started)
-    5. [Deploy Finished](###Deploy-Finished)
-6. [Deploy Logic](##Deploy-Logic)
-7. [Run](##Run)
+1. [Overview](#Overview)
+2. [Settings and players](#Settings-and-players)
+3. [Adding units](#Adding-units)
+4. [Player status](#Player-status)
+5. [Loading Phases](#Loading-Phases)
+    1. [Map Loaded](#Map-loaded)
+    2. [Match Loaded](#Match-loaded)
+    3. [Match Prepared](#Match-prepared)
+    4. [Deploy Started](#Deploy-Started)
+    5. [Deploy Finished](#Deploy-Finished)
+6. [Deploy Logic](#Deploy-Logic)
+7. [Run](#Run)
 
 Example scenarios:
 
