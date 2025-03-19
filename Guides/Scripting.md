@@ -2,22 +2,18 @@
 
 ## Table of Contents
 
-1. [Overview](#Overview)
-2. [Settings and players](#Settings-and-players)
-3. [Adding units](#Adding-units)
-4. [Player status](#Player-status)
-5. [Loading Phases](#Loading-Phases)
-    1. [Map loaded](#Map-loaded)
-    2. [Match loaded](#Match-loaded)
-    3. [Match prepared](#Match-prepared)
-    3. [Match prepared](#Match-prepared)
-    3. [Match prepared](#Match-prepared)
-
-    <!-- 4. player deploy logic
-    5 OnPlayerDeployStarted
-    6 OnPlayerDeployFinished -->
-
-6. [Done!](#Done!)
+1. [Overview](##Overview)
+2. [Settings and players](##Settings-and-players)
+3. [Adding units](##Adding-units)
+4. [Player status](##Player-status)
+5. [Loading Phases](##Loading-Phases)
+    1. [Map Loaded](###Map-loaded)
+    2. [Match Loaded](###Match-loaded)
+    3. [Match Prepared](###Match-prepared)
+    4. [Deploy Started](###Deploy-Started)
+    5. [Deploy Finished](###Deploy-Finished)
+6. [Deploy Logic](##Deploy-Logic)
+7. [Run](##Run)
 
 Example scenarios:
 
@@ -79,11 +75,8 @@ Full list of the `game_settings` parameters are:
 - `enable gasoline`
 - `expensive reload/repair/rearm`
 - `survey flag`
-- `one subbase`
 - `generate resources`
-- `complex construction`
-- `script deploy`
-- `fixed teams`   
+- `complex construction` 
 - `min_version`
 
 ## Adding units
@@ -250,6 +243,39 @@ function testMatchLogic:onPlayerDeployFinished(match, player)
 end
 ```
 
-## Done!
+## Deploy Logic
 
-After you modified testMatch.lua script you should save it (please keep original copy), overwrite existing script, and start test match in game to see your changes in game.
+You can specify a deploy logic for players individually by returning a desired option using a function
+`getPlayerDeployLogic`:
+
+```lua
+function testMatchLogic:getPlayerDeployLogic(player)
+    if player:getPlayerId() == 1 then
+        -- player 1 can choose a point on the territory
+        return GameMatchDeployLogic.deployZone(Rect(48, 12, 20, 20))
+    end
+    if player:getPlayerId() == 2 then
+        -- player 2 is given a special position
+        return GameMatchDeployLogic.deployPosition(Point(26, 77))
+    end
+    if player:getPlayerId() == 3 then
+        -- player 3 deploys as usual
+        return GameMatchDeployLogic.deployDefault()
+    end
+    -- all other
+    return GameMatchDeployLogic.deployDefault()
+end
+```
+
+The game will do it's bets to combine all these options with with the rest of deploy mechanics
+like Complex Construction or Start Units and Upgrades Selection.
+
+Known Incompatibilities:
+
+1. Using no deploy logic for all players (all players set to `deployPredefined`) and setting all clans but still setting the Complex Construction flag in settings:
+   - Game will ignore the Complex Construction flag
+
+## Run
+
+After you modified testMatch.lua script you should save it (please keep original copy) and
+overwrite the existing script. Start the test match in game to see to try your changes out.

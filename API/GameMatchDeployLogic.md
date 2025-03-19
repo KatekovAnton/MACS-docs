@@ -11,9 +11,9 @@ Not available because this object is managed by hosting application
 
 ---
 ```lua
-static GameMatchDeployLogic deployNone()
+static GameMatchDeployLogic deployDefault()
 ```
-No deploy logic, default behavior.
+The default behavior.
 
 ---
 ```lua
