@@ -38,9 +38,9 @@ For details about initializion script please refer to [Scripting Guide](Guides/S
 
 ### Executing Scripts
 
-Scripts will be running on the main thread so please avoid 
+Scripts will be running on the main thread so please avoid running complicated calculations.
 
-The script will be provided with a memory pool that is not syncronized between players you should not retain any objects in script variables outside of the API methods. Instead, you need to retrieve a needed data on-the-fly.
+The script will be provided with a memory pool that is not syncronized between players so you should not retain any objects in the script global variables, outside of the API methods. Instead, you need to retrieve a needed data on-the-fly.
 
 You can still create some global structure the first time you run the script, but remember that you do this at your own risk, and it is entirely up to you to keep that structure (and all the script behvior derrived from it) reproducible.
 
@@ -109,8 +109,12 @@ This section contains information about objects and its APIs that hosting applic
 
 ## Event System
 
+Coming soon.
+
 Built-in event system allow you to track and handle some game events.
 
 ## Quest System
+
+Coming soon.
 
 Quest system is based on handling events.
