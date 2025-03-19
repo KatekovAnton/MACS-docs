@@ -10,13 +10,10 @@ This repo contains documentation and specifications for MACS (Mechanized Assault
     2. [Executing Scripts](#Executing-Scripts)
     3. [Testing Scripts](#Testing-Scripts)
     4. [Uploading scenarios for community](#Uploading-scenarios-for-community)
-2. [API Specification](#API-Specification)
-    1. [Structures](#Structures)
-    2. [Game](#Game)
-    3. [GameMap](#GameMap)
-    4. [GameMatch](#GameMatch)
-    5. [GameMatchPlayer](#GameMatchPlayer)
-    6. [GameUnit](#GameUnit)
+2. [API Specification](##API-Specification)
+    1. [Constants](###Constants)
+    2. [Structures](###Structures)
+    3. [Objects](###Objects)
 3. [Event System](#Event-System)
 4. [Quest System](#Quest-System)
 
@@ -98,9 +95,9 @@ This section contains information about objects and its APIs that hosting applic
 - [Rect](API/Structures.md##Rect)
 - [Size](API/Structures.md##Size)
 - [Point](API/Structures.md##Point)
+- [GameMatchSettings](API/GameMatchSettings.md)
 - [GameMatchPlayerInfo](API/GameMatchPlayerInfo.md)
 - [GameMatchDeployLogic](API/GameMatchDeployLogic.md)
-- [GameMatchSettings](API/GameMatchSettings.md)
 - [GameEvent](API/GameEvent.md)
 
 ### Objects
