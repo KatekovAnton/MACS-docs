@@ -274,6 +274,8 @@ Known Incompatibilities:
 
 1. Using no deploy logic for all players (all players set to `deployPredefined`) and setting all clans but still setting the Complex Construction flag in settings:
    - Game will ignore the Complex Construction flag
+2. Mixing predefined deploy with real deploy is, in general, not supported and not handled.
+   - Predefined menas skipping the deploy, while all other options requires user input. Just difficult to handle and test all the combinations. Raise an issue if its needed
 
 ## Run
 
