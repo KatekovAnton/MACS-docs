@@ -275,6 +275,8 @@ Known Incompatibilities:
    - Game will ignore the Complex Construction flag
 2. Mixing predefined deploy with real deploy is, in general, not supported and not handled.
    - Predefined menas skipping the deploy, while all other options requires user input. Just difficult to handle and test all the combinations. Please raise an issue if its needed.
+3. If you use `deployPredefined`, then `OnPlayerDeployStarted` and `onPlayerDeployFinished` will not be executed since the deploy is not performed at all
+   - Use other events like `onMatchPrepared` to initialize player states.
 
 ## Run
 
