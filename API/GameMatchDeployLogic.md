@@ -31,7 +31,7 @@ Deploy is set to a specific position. Player will not be asked to choose a deplo
 ```lua
 static GameMatchDeployLogic deployPredefined(Rect zone)
 ```
-Deploy is skipped. If the survey is set to MAX_MATCH_SURVEY_MIN, the zone will be used to unveil resources.
+Deploy is skipped. If the survey is set to MAX_MATCH_SURVEY_MIN, the zone will be used to unveil resources. Keep in mind - if you use `deployPredefined`, then `OnPlayerDeployStarted` and `onPlayerDeployFinished` will not be executed since the deploy is not performed at all. Instead, ose other events like `onMatchPrepared`, to setup the initial states.
 
 ## Properties
 
