@@ -125,11 +125,18 @@ speed = 1 -- set unit speed fo producing. See unit:setBuildUnit(produce, speed)
 ```lua
 local data1 = {gold = 1000, cameraX = 83, cameraY = 30, cameraZoom = 1}
 ```
-It means start gold, initial camera position and scale.
+wich corresponds to start gold, initial camera position and camera zoom.
 
 ## Loading Phases
 
-Game defines a few phases of loading the game. During this, a corresponding script function is called. You can use these function in analyse the match state and perform different custom actions.
+Game defines a few phases of loading the game. During this, a corresponding script function is called. You can use these functions to implement different match customizations and receive a ceratin initial state. 
+
+For example, you can setup
+
+- Starting resources
+- Starting units
+- Starting upgrades
+- Special unit statuses (low hp, ammo or fuel)
 
 Resources are generated randomly in few scenarios. Please keep in mind that mining stations should be set after the resources in their cells are generated.
 
