@@ -1,79 +1,106 @@
 # GameMatchSettings
 
-Represents the match settings. 
+Represents the settings and rules for a specific match.
 
 ## Constructors
 
 ---
-Not available because this object is managed by hosting application
+Not available because this object is managed by hosting application.
 
 ## Methods
 
 ---
 ```lua
-int getStartGold()
+Bool getBool(String name)
 ```
-Returns the starting amount of credits
+Retrieves a boolean setting by name.
 
 ---
 ```lua
-int getRawMatResLevels()
+Int getInt(String name)
 ```
-Returns the [Resource Level](Constants.md##Resource_Levels) corresponding to Raw material.
+Retrieves an integer setting by name.
 
 ---
 ```lua
-int getFuelResLevels()
+String getString(String name)
 ```
-Returns the [Resource Level](Constants.md##Resource_Levels) corresponding to Fuel.
+Retrieves a string setting by name.
 
 ---
 ```lua
-int getGoldResLevels()
+Int getStartGold()
 ```
-Returns the [Resource Level](Constants.md##Resource_Levels) corresponding to Gold.
+Returns the starting amount of credits for players.
 
 ---
 ```lua
-int getResCount()
+Int getRawMatResLevels()
 ```
+Returns the [Resource Level](Constants.md##Resource_Levels) for Raw Materials.
 
 ---
 ```lua
-bool getAllowLaying()
+Int getFuelResLevels()
 ```
+Returns the [Resource Level](Constants.md##Resource_Levels) for Fuel.
 
 ---
 ```lua
-bool getGasoline()
+Int getGoldResLevels()
 ```
+Returns the [Resource Level](Constants.md##Resource_Levels) for Gold.
 
 ---
 ```lua
-bool getStartWithRadar()
+Int getResCount()
 ```
+Returns the total number of resource placements.
 
 ---
 ```lua
-bool getStartBase()
+Bool getAllowLaying()
 ```
+Returns true if 'Laying Ability' is enabled.
 
 ---
 ```lua
-int getSurveyFlag()
+Bool getGasoline()
 ```
+Returns true if Gasoline consumption is enabled.
 
 ---
 ```lua
-bool getExpensiveTools()
+Bool getStartWithRadar()
 ```
+Returns true if players start with a radar/survey flag.
 
 ---
 ```lua
-bool getMilitaryPurchases()
+Bool getStartBase()
 ```
+Returns true if players start with a base building.
 
 ---
 ```lua
-bool getComplexConstruction()
+Int getSurveyFlag()
 ```
+Returns the survey mode level.
+
+---
+```lua
+Bool getExpensiveTools()
+```
+Returns true if 'Expensive Reload/Repair/Rearm' is enabled.
+
+---
+```lua
+Bool getMilitaryPurchases()
+```
+Returns true if 'Military Purchases' are enabled.
+
+---
+```lua
+Bool getComplexConstruction()
+```
+Returns true if 'Complex Construction' is enabled.

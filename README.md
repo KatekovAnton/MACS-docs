@@ -106,6 +106,7 @@ This section contains information about objects and its APIs that hosting applic
 - [GameMatch](API/GameMatch.md)
 - [GameMatchPlayer](API/GameMatchPlayer.md)
 - [GameUnit](API/GameUnit.md)
+- [GameObjectConfig](API/GameObjectConfig.md)
 
 ## Event System
 

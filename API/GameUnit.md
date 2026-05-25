@@ -1,6 +1,6 @@
 # GameUnit
 
-Represents a unit in the game.
+Represents an individual unit or building.
 
 ## Constructor
 
@@ -19,115 +19,153 @@ Return unit's unique identifier.
 ```lua
 String getType()
 ```
-Return unit's type.
+Return unit's type identifier (e.g., 'tank', 'mining').
 
 ---
 ```lua
 Point getPosition()
 ```
-Return unit's position.
+Return unit's current map position.
 
 ---
 ```lua
-bool getIsMoving()
+Bool getIsMoving()
 ```
-Returns true if unit is moving right now.
+Returns true if the unit is currently in motion.
 
 ---
 ```lua
 Int getUnitNumber()
 ```
-Returns a searial number of the unit.
+Returns the serial number of the unit.
 
 ---
 ```lua
-String getUnitSpecialName()
+String getSpecialName()
 ```
-Returns a consistent name of the unit. The value is compatible with the quest and trigger systems.
+Returns the unique name of the unit if one was set.
 
 ---
 ```lua
-bool getIsOn()
+Int getOwnerId()
 ```
-Returns if the unit is turned on.
+Returns the ID of the player who owns this unit.
 
 ---
 ```lua
-bool getIsPlacedOnMap()
+Bool getIsOn()
 ```
-Returns if the unit is placed on map.
+Returns true if the unit's power is ON.
 
 ---
 ```lua
-bool getIsLoaded()
+Bool getIsPlacedOnMap()
 ```
-Returns if the unit is loaded into a transport or not.
+Returns true if the unit is physically present on the map.
+
+---
+```lua
+Bool getIsLoaded()
+```
+Returns true if the unit is currently inside a transport.
+
+---
+```lua
+GameObjectConfig getConfig()
+```
+Returns the configuration object for this unit's type.
 
 ---
 ```lua
 void setParameterValue(Int parameterType, Int newValue)
 ```
-Parameters for storage can be set in any moment of initialization but consumable parameters should be set inside of **onMatchPrepared** when all initial upgrades already took effects. Otherwise this changes will be ignored.
-
-Notes:
-- Speed and Gasoline visual values should be multiplied by 10.
-
-For values of **parameterType** refer to [API's contstants description](Constants.md)
+Directly sets a unit's parameter (Health, Fuel, Ammo, etc.). 
+Note: Consumable parameters should typically be set in `onMatchPrepared`.
 
 ---
 ```lua
-int getParameterValue(Int parameterType)
+void setParameterBonus(Int parameterType, Int value, Bool applyToCurrent)
 ```
-Refer to [API's contstants description](Constants.md)
+Adds a bonus value to a specific parameter.
 
 ---
+```lua
+Int getParameterValue(Int parameterType)
 ```
-int getParameterMaxValue(Int parameterType)
-```
-Refer to [API's contstants description](Constants.md)
+Returns the current value of a parameter.
 
 ---
+```lua
+Int getParameterMaxValue(Int parameterType)
 ```
+Returns the maximum possible value for a parameter (including upgrades).
+
+---
+```lua
+void resetAllParameters()
+```
+Restores all unit parameters to their base/upgraded defaults.
+
+---
+```lua
 Point getPathTarget()
 ```
+Returns the destination point if the unit is moving.
 
 ---
+```lua
+GameUnit placeUnitOnMap(Bool force)
 ```
-void placeUnitOnMap(Bool force)
-```
-Place unit on game field. Will not trigger autofire.
+Places the unit on the map. Returns the unit itself (allows chaining).
 
 ---
-```
+```lua
 void turnOn()
 ```
-Turns the unit on.
+Turns the unit's power ON.
 
 ---
-```
+```lua
 void turnOff()
 ```
-Turns the unit off.
+Turns the unit's power OFF.
 
 ---
+```lua
+void install()
 ```
+Commands the unit to start installing (for deployable units like turrets).
+
+---
+```lua
+void uninstall()
+```
+Commands the unit to start uninstalling.
+
+---
+```lua
 void setDirection(Int direction)
 ```
-Sets the unit direction. Direction should be 0 to 7.
+Sets unit's facing (0-7).
 
 ---
+```lua
+void setHeadAngle(Float angle)
 ```
+Sets the rotation angle of the unit's turret/head.
+
+---
+```lua
 void storeUnitToCargo(GameUnit unit)
 ```
-Put a given unit into a cargo of the specified unit.
+Loads the specified unit into this unit's cargo space.
 
-<!-- setBuildUnit -->
 ---
-```
+```lua
 void setBuildUnit(String type, Int speed)
 ```
-Set a task to build unit.
+Sets the production task for a factory.
 
 Parameters:
-- **String type** - type of unit to build
-- **Int speed** - Speed to build with. Valid values: 1 - 1x speed, 2 - 2x speed, 4 - 4x speed.
+- **String type** - type to build
+- **Int speed** - production multiplier (1, 2, or 4)
