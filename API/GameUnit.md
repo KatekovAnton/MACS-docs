@@ -116,7 +116,7 @@ Returns the destination point if the unit is moving.
 ```lua
 GameUnit placeUnitOnMap(Bool force)
 ```
-Places the unit on the map. Returns the unit itself (allows chaining).
+Places the unit on the map. Returns the unit itself (allows chaining). Will not trigger autofire.
 
 ---
 ```lua
