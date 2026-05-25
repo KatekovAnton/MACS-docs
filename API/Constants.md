@@ -1,9 +1,11 @@
 # Constants
 
-API Constants are listed in `customMissionLogic.lua`. Their values aligns with the game client, so please do not modify it.
+API Constants are listed in `customMissionLogic.lua`. Their values align with the game engine, so please do not modify them.
 
 ## Parameter Types
 
+### Base & Upgradable Parameters
+- UNIT_PARAMETER_TYPE_SPEED       = 0
 - UNIT_PARAMETER_TYPE_HEALTH      = 1
 - UNIT_PARAMETER_TYPE_SHOTS       = 2
 - UNIT_PARAMETER_TYPE_GAS         = 3
@@ -13,6 +15,8 @@ API Constants are listed in `customMissionLogic.lua`. Their values aligns with t
 - UNIT_PARAMETER_TYPE_RANGE       = 7
 - UNIT_PARAMETER_TYPE_SCAN        = 8
 - UNIT_PARAMETER_TYPE_COST        = 9
+
+### Storage Parameters (Consumables)
 - UNIT_PARAMETER_TYPE_FUEL        = 25
 - UNIT_PARAMETER_TYPE_GOLD        = 26
 - UNIT_PARAMETER_TYPE_MATERIAL    = 27
@@ -37,7 +41,7 @@ API Constants are listed in `customMissionLogic.lua`. Their values aligns with t
 - DEPLOY_LOGIC_ZONE               = 2
 - DEPLOY_LOGIC_PREDEFINED         = 3
 
-## Survey types
+## Survey Types
 
-- MAX_MATCH_SURVEY_MIN = 0,
-- MAX_MATCH_SURVEY_FULL = 1
+- MAX_MATCH_SURVEY_MIN            = 0
+- MAX_MATCH_SURVEY_FULL           = 1

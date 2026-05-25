@@ -1,37 +1,37 @@
 # GameMatchDeployLogic
 
-Represents a unit in the game.
+Defines how a player is placed on the map during the initial game phase.
 
-## Constructor
+## Constructors
 
 ---
-Not available because this object is managed by hosting application
+Not available directly. Use static factory methods.
 
-## Methods
+## Static Methods
 
 ---
 ```lua
 static GameMatchDeployLogic deployDefault()
 ```
-The default behavior.
+The default behavior: player starts with standard units based on match settings.
 
 ---
 ```lua
 static GameMatchDeployLogic deployZone(Rect zone)
 ```
-Deploy is set to a predefined zone. Player will have to choose the position inside of the zone.
+Restricts deployment to a specific rectangular zone. Player must choose a point within this zone.
 
 ---
 ```lua
 static GameMatchDeployLogic deployPosition(Point position)
 ```
-Deploy is set to a specific position. Player will not be asked to choose a deploy point and all his units will be deployed to a position set in the script, without ground type checks.
+Forces deployment to an exact position. The player skips the selection phase.
 
 ---
 ```lua
 static GameMatchDeployLogic deployPredefined(Rect zone)
 ```
-Deploy is skipped. If the survey is set to MAX_MATCH_SURVEY_MIN, the zone will be used to unveil resources. Keep in mind - if you use `deployPredefined`, then `OnPlayerDeployStarted` and `onPlayerDeployFinished` will not be executed since the deploy is not performed at all. Instead, ose other events like `onMatchPrepared`, to setup the initial states.
+Skips the deployment phase entirely. Initial units must be manually created via script. The `zone` is used to unveil resources if survey is enabled.
 
 ## Properties
 
@@ -39,10 +39,10 @@ Deploy is skipped. If the survey is set to MAX_MATCH_SURVEY_MIN, the zone will b
 ```lua
 Point position
 ```
-The deploy position, if set
+The forced deploy position (if using `deployPosition`).
 
 ---
 ```lua
 Rect zone
 ```
-The full rectangular zone, if set
+The allowed deploy zone (if using `deployZone` or `deployPredefined`).
