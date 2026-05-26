@@ -99,7 +99,6 @@ This section contains information about objects and its APIs that hosting applic
 - [GameMatchPlayerInfo](API/GameMatchPlayerInfo.md)
 - [GameMatchDeployLogic](API/GameMatchDeployLogic.md)
 - [GameEvent](API/GameEvent.md)
-- [QuestSystem](API/QuestSystem.md)
 
 ## Objects
 
@@ -115,4 +114,6 @@ This section contains information about objects and its APIs that hosting applic
 
 ## Quest System
 
-[Quest System Documentation](API/QuestSystem.md)
+Coming soon.
+
+Quest system is based on handling events.
