@@ -100,7 +100,7 @@ This section contains information about objects and its APIs that hosting applic
 - [GameMatchDeployLogic](API/GameMatchDeployLogic.md)
 - [GameEvent](API/GameEvent.md)
 
-### Objects
+## Objects
 
 - [GameMap](API/GameMap.md)
 - [GameMatch](API/GameMatch.md)
@@ -110,9 +110,7 @@ This section contains information about objects and its APIs that hosting applic
 
 ## Event System
 
-Coming soon.
-
-Built-in event system allow you to track and handle some game events.
+[Event System Documentation](API/GameEvent.md)
 
 ## Quest System
 
