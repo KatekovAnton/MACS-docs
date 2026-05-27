@@ -10,12 +10,16 @@ This repo contains documentation and specifications for MACS (Mechanized Assault
     2. [Executing Scripts](#Executing-Scripts)
     3. [Testing Scripts](#Testing-Scripts)
     4. [Uploading scenarios for community](#Uploading-scenarios-for-community)
-2. [API Specification](#API-Specification)
+3. [Scenario Editor](#Scenario-Editor)
+    1. [Overview](#Overview-1)
+    2. [Usage & Workflow](#Usage--Workflow-1)
+    3. [Key Features](#Key-Features-1)
+4. [API Specification](#API-Specification)
     1. [Constants](#Constants)
     2. [Structures](#Structures)
     3. [Objects](#Objects)
-3. [Event System](#Event-System)
-4. [Quest System](#Quest-System)
+5. [Event System](#Event-System)
+6. [Quest System](#Quest-System)
 
 ## Overview
 
@@ -48,13 +52,11 @@ Our recommendation is to follow the stateless approach as much as possible, leav
 
 ### Testing Scripts
 
-To start creating your scenario you should open test match script which is located in game resources folder: **Resources/Scripts/testMatch.lua**:
+To start creating your scenario you should create it in the Editor. Once you are done with your scenario, save it in the Editor. It will be saved as **editorScript.lua**. 
 
- ![](Images/initScript1.jpg) 
+Copy this file to **testScript.lua** (usually in your game's save directory). 
 
-You can open it with any text editor, I would recommend you Visual Studio Code, Atom, Sublime Text or Notepad++ because they have option to highlight script syntax, it is very useful.
-
-In order to run the script, start the game, go LOCAL GAME and press small `{>}` button on the top-left corner of the screen. Game will start a local game with the content of `testMatch.lua`.
+After that, start the game, go to **LOCAL GAME** and press the **Test Game** option. The game will start a local game with the content of `testScript.lua`.
 
 For details about initializion script please refer to [Scripting Guide](Guides/Scripting.md).
 
@@ -77,7 +79,33 @@ On scenarios page (navigate to **Game -> Scenarios** https://macsgame.com/game/s
 
 Choose any scenario created by other member (for example: https://macsgame.com/game/scenario/3.html) and press **Add to my list**  in order to see it in game.
 
-## API Specification
+## 3. Scenario Editor
+
+The Scenario Editor is a tool built into the MAX engine that allows players to design and test custom scenarios and maps.
+
+### Overview
+
+The Editor provides a graphical interface to modify game conditions, place units, and adjust map terrain. It operates in two modes:
+*   **Map Editor:** Used for terraforming, brush-based terrain design, and setting water/surface levels.
+*   **Scenario Editor:** Used for configuring gameplay, including player sets, clan assignments, and unit placement.
+
+### Usage & Workflow
+
+1.  **Editor Access:** You access the editor tools directly within the game.
+2.  **Saving Progress:**
+    *   **Map Editor:** Changes are saved as a custom map file (the engine handles the map metadata, terrain blend maps, and previews).
+    *   **Scenario Editor:** Clicking the "Save" button in the editor interface serializes your configuration (players, clans, units) into a Lua script file named `editorScript.lua` in your local working directory.
+3.  **Testing Your Work:**
+    *   After saving, manually copy `editorScript.lua` to a new file named `testScript.lua` (in the same directory).
+    *   Start the game, navigate to the **LOCAL GAME** menu, and select the **Test Game** option. The game will launch using the scenario settings from `testScript.lua`.
+
+### Key Features
+
+*   **Interface Tools:** The editor features a dedicated options menu where you can configure players (All-View, Zero/Neutral, and human/AI players) and manage unit placement.
+*   **Terrain Manipulation:** Includes tools for drawing, brush size adjustments, and automated map cell type generation to ensure gameplay-ready terrain.
+*   **Integration:** The editor is tightly integrated with the game engine, allowing you to transition directly from editing to testing your work through the local match menu.
+
+## 4. API Specification
 
 This section contains information about objects and its APIs that hosting application exposes to lua side. 
 
@@ -100,7 +128,7 @@ This section contains information about objects and its APIs that hosting applic
 - [GameMatchDeployLogic](API/GameMatchDeployLogic.md)
 - [GameEvent](API/GameEvent.md)
 
-## Objects
+### Objects
 
 - [GameMap](API/GameMap.md)
 - [GameMatch](API/GameMatch.md)
@@ -108,11 +136,11 @@ This section contains information about objects and its APIs that hosting applic
 - [GameUnit](API/GameUnit.md)
 - [GameObjectConfig](API/GameObjectConfig.md)
 
-## Event System
+## 5. Event System
 
 [Event System Documentation](API/GameEvent.md)
 
-## Quest System
+## 6. Quest System
 
 Coming soon.
 
