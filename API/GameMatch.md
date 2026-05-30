@@ -128,7 +128,7 @@ Adds resource-containing garbage to the map.
 
 ---
 ```lua
-void addDecoration(String id, Int type, Int size, Int x, Int y)
+void addDecoration(int id, String type, Point position, int direction, int level, int posHeigth, bool showInFog, bool showInLow)
 ```
 Adds a visual decoration.
 
